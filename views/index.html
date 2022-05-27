@@ -4,29 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primer documento en HTML</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>JBL Sales</title>
 </head>
 <body>
-    <h4>Soy un h4</h4>
-    <h1>El titulo de nuestro documento</h1>
-    <h2>Un subtitulo cualquiera</h2>
-    <img src="./public/images/leia.jpeg">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta necessitatibus nemo, hic a laborum omnis aut maiores quae numquam aperiam sit nostrum rem et, blanditiis ex quaerat consequatur perferendis assumenda.</p>
+    <header>
+        <div class="top-header">
+            <img src="/images/Logo.png" class="logo" alt="logo">
+            <div class="form" action="#" method="GET">
+                <div class="input">Buscar</div>
+                <div class="submit"><i class="fa fa-search"></i></div>
+            </div>
+            <div class="carrito">
+                Carrito
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+        <div class="bottom-header">
+            <ul>
+                <li><a href="#">Auriculares JBL</a></li>
+                <li><a href="#">Parlantes JBL</a></li>
+                <li><a href="#">Gaming</a></li>
+                <li><a href="#">Notebooks</a></li>
+            </ul>
+            <div>
+                <ul>
+                    <li><a href="#">Inicia Sesion</a></li>
+                    <li><a href="#">Registro</a></li>
+                    <li style="display: none"><a href="#">Mi cuenta</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="banner">
+        <img class="img-banner" src="" alt="">
+    </div>
+    <main>
+        <h2 class="promociones">Promociones</h2>
+        <div class="rueda-productos">
+            <article class="producto">
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, molestiae excepturi corrupti placeat modi libero dolor similique eligendi, esse earum quidem. Accusamus ratione tenetur obcaecati explicabo, aperiam cupiditate molestiae voluptas!</p>
-
-    <ol>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ol>
-
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
-
-    <a href="https://www.google.com">Ir Google</a>
+            </article>
+            <article class="producto">
+                
+            </article>
+            <article class="producto">
+                
+            </article>
+            <article class="producto">
+                
+            </article>
+        </div>
+        <h2>Algo sobre la pagina</h2>
+        <div>Contenido a evaluar</div>
+    </main>
+    <footer>
+        <h4>Pie de Pagina</h4>
+        <p>Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
