@@ -138,6 +138,51 @@ header a{
     color:#242F9B;
 }
 
+.img-banner{
+    width: 100%;
+}
+
+main{
+    padding: 4%;
+    background-color: #DBDFFD;
+}
+
+.rueda-productos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.rueda-productos a{
+    text-decoration: none;
+    margin: auto;
+}
+
+.rueda-productos article img{
+    width: 100%;
+}
+
+.rueda-productos article{
+    background-color: #242F9B;
+    padding: 2%;
+    margin : 4% auto 4% auto;
+}
+
+.rueda-productos p{
+    color: #DBDFFD;
+    font-size: 16px;
+    padding-left: 4%;
+}
+
+.rueda-productos h4{
+    color: #DBDFFD;
+    font-size: 24px;
+    padding-left: 4%;
+    margin: 0px;
+}
+
 @media (min-width:769px){
     .desktop-header{
         display: block;
