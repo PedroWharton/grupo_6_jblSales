@@ -11,6 +11,17 @@ body{
 .desktop-header{
     display: none;
 }
+
+.mobile-header{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+}
+.second-mobile-header{
+    width: 100%;
+    z-index: -1;
+}
 .top-mobile-header{
     display: flex;
     flex-wrap: wrap;
@@ -183,6 +194,83 @@ main{
     margin: 0px;
 }
 
+.register-form div{
+    width: 80%;
+    margin: auto;
+}
+
+.register-form input{
+    width: 100%;
+    padding: 8px;
+    margin: 8px;
+}
+
+.register-form label{
+    padding: 8px;
+    margin: 8px;
+    padding-left: 0px;
+}
+
+.register-form button{
+    margin-left: 72.5%;
+    width: 30%;
+    padding: 8px;
+    background-color: #5364fb;
+    border-radius: 5%;
+    margin-top: 8px;
+}
+
+.register-form p{
+    font-size: 14px;
+    text-align: center;
+}
+.register-form a{
+    text-decoration: none;
+}
+main .producto-carrito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+main .producto-carrito{
+    padding: 8px;
+    border: solid 1px #242F9B;
+    margin-top: 8px;
+}
+.descripcion-producto{
+    display: none;
+}
+
+main .img-producto-carrito{
+    width: 25%;
+}
+
+main .img-producto-carrito img{
+    width: 100%;
+}
+main .texto-producto-carrito{
+    margin: 8px;
+    padding: 8px;
+    margin-top: 0px;
+    padding-top: 0px;
+    width: 70%;
+}
+main .texto-producto-carrito h4{
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+.eliminar-carrito{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    text-decoration: underline;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
 @media (min-width:769px){
     .desktop-header{
         display: block;
@@ -192,5 +280,14 @@ main{
     }
     .form{
         width: 65%;
+    }
+    .register-form div{
+        width: 40%;
+    }
+    .second-mobile-header{
+        display: none;
+    }
+    .descripcion-producto{
+        display: block;
     }
 }

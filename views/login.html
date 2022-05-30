@@ -58,6 +58,41 @@
             <a><i class="fa-solid fa-bars"></i></a>
         </div>
     </header>
+    <header class="second-mobile-header"> <!-- creado para poder fijar el mobile header sin perder la relacion con el banner -->
+        <div class="top-mobile-header">
+            <img src="/images/Logo.png" class="logo" alt="logo">
+            <div class="cuenta">
+                <ul>
+                    <li><a href="login">Inicia Sesion</a></li>
+                    <li><a href="register">Registro</a></li>
+                    <li style="display: none"><a href="#">Mi cuenta</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-mobile-header">
+            <div class="form" action="#" method="GET">
+                <div class="input">Buscar</div>
+                <div class="submit"><i class="fa fa-search"></i></div>
+            </div>
+            <a href="productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a><i class="fa-solid fa-bars"></i></a>
+        </div>
+    </header>
+    <main>
+        <h1 style="text-align:center;">Inicia Sesion</h1>
+        <div class="register-form">
+            <div>
+            <label for="username"><b>Nombre de Usuario</b></label><br>
+            <input type="text" placeholder="Nombre de Usuario" name="username" id="username" required><br>
+        </div>
+        <div>
+            <label for="password"><b>Password</b></label><br>
+            <input type="password" placeholder="Contraseña" name="password" id="password" required><br>
+            <button type="submit" class="register-button">Login</button>
+            <p>No tenes cuenta? <a href="register">Registrate</a></p>
+        </div>
+        </div>
+    </main>
     <footer>
         <h4>Pie de Pagina</h4>
         <p>Todos los derechos reservados</p>
