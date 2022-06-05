@@ -10,23 +10,16 @@
 </head>
 <body>
     <header class="desktop-header">
-        <div class="bottom-header">
+        <div class="top-header">
             <img src="/images/Logo.png" class="logo" alt="logo">
             <div class="form" action="#" method="GET">
                 <div class="input">Buscar</div>
                 <div class="submit"><i class="fa fa-search"></i></div>
-                <div class="bottom-header" >
-                    <ul>
-                        <li><a href="login">Inicia Sesion</a></li>
-                        <li><a href="register">Registro</a></li>
-                        <li style="display: none"><a href="#">Mi cuenta</a></li>
-                    </ul>
-                </div>
-                <div class="carrito"><a class="carrito" href="productCart">
-                    Carrito
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-                </div>
+            </div>
+            <div class="carrito"><a class="carrito" href="productCart">
+                Carrito
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
             </div>
         </div>
         <div class="bottom-header">
@@ -36,6 +29,13 @@
                 <li><a href="#">Gaming</a></li>
                 <li><a href="#">Notebooks</a></li>
             </ul>
+            <div>
+                <ul>
+                    <li><a href="login">Inicia Sesion</a></li>
+                    <li><a href="register">Registro</a></li>
+                    <li style="display: none"><a href="#">Mi cuenta</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <header class="mobile-header">
@@ -80,7 +80,6 @@
     </header>
     <main>
         <h1 style="text-align:center;">Inicia Sesion</h1>
-        <form action="/login" method="POST">
         <div class="register-form">
             <div>
             <label for="username"><b>Nombre de Usuario</b></label><br>
@@ -93,12 +92,10 @@
             <p>No tenes cuenta? <a href="register">Registrate</a></p>
         </div>
         </div>
-        </form>
-
     </main>
     <footer>
         <h4>Pie de Pagina</h4>
         <p>Todos los derechos reservados</p>
     </footer>
 </body>
-</html>    
+</html>  
