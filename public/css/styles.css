@@ -297,12 +297,40 @@ main .texto-producto-carrito h4{
     font-size: 1em;
 }
 
+.checkout{
+    border: solid 1px #242F9B;
+    padding: 8px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.subtotal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.checkout-button{
+    width: 100%;
+    background-color: #5364fb;
+    padding: 8px;
+    border-radius: 5px;
+    color: #DBDFFD;
+}
+
+.checkout-button:hover{
+    background-color: #242F9B;
+}
+
 .pie-pagina{
     width: 100%;
     background-color: #2c3e50;
 
 }
 
+.footer-img{
+    width: 100%;
+}
 .pie-pagina .grupo-1{
     width: 100%;
     max-width: 1200px;
@@ -314,13 +342,16 @@ main .texto-producto-carrito h4{
 
 }
 
+.pie-pagina .grupo-1 figure{
+    margin: 1em;
+}
+
 .pie-pagina .grupo-1 .box .figure{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content:center;
     align-items: center;
-
 }
 
 .pie-pagina .grupo-1 .box .figure{
