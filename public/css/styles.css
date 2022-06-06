@@ -322,6 +322,50 @@ main .texto-producto-carrito h4{
     background-color: #242F9B;
 }
 
+.img-product-detail{
+    width: 100%;
+    margin-top: 8px;
+}
+
+.cantidad-select{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cantidad-select p{
+    margin: 0px 4px 0px 0px;
+}
+.cantidad-select select{
+    width: 100%;
+}
+
+.product-detail-buttons{
+    margin: 8px 0px;
+}
+
+.comprar-ahora, .agregar-carrito{
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+    margin-top: 4px;
+    background-color: #242F9B;
+    color: #DBDFFD;
+}
+
+.comprar-ahora:hover, .agregar-carrito:hover{
+    background-color: #0d2033;
+}
+
+.caracteristicas, .descripcion{
+    background-color: #2c3e50;
+    color: #ebebeb;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+
 .pie-pagina{
     width: 100%;
     background-color: #2c3e50;
@@ -431,6 +475,36 @@ main .texto-producto-carrito h4{
     }
     header .logo{
         width: 20%;
+    }
+    .descripcion{
+        display: none;
+    }
+    .main-product-detail-div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+    .img-product-detail{
+        width: 40%;
+    }
+    .desktop-description-div{
+        width: 60%;
+        padding: 8px;
+        position: relative;
+    }
+    .cantidad-select select{
+        width: auto;
+    }
+    .product-detail-buttons{
+        position: absolute;
+        bottom: 0px;
+        width: 70%;
+        display: flex;
+        margin-bottom: 4px;
+    }
+    .comprar-ahora{
+        margin-right: 4px;
     }
   
 }
