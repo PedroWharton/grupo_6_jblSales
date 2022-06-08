@@ -1,6 +1,4 @@
 # grupo_6_jblSales
-
-# grupo_6_jblSales
 #### Somos JBL Sales, y te invitamos a que nos conozcas.
 
 ## Productos y servicios.
@@ -21,3 +19,6 @@
 ###### **https://www.amazon.com/**
 ###### **https://www.ebay.com/**
 ###### **https://www.samsung.com.ar/**
+
+##### Link al tablero de trabajo:
+###### **https://trello.com/b/Y1G0C69Q/tareas-jblsales**
