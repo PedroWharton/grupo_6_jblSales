@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <h1>Carrito de Compras</h1>
+        <div class="articulos-carrito">
+            <article class="producto-carrito">
+                <div class="img-producto-carrito">
+                    <img src="/images/JBLQuantum50.png" alt="">
+                </div>
+                <div class="texto-producto-carrito">
+                    <h4>JBL Quantum 50</h4><br>
+                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
+                    <select name="cantidad" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <p>$999</p>
+                </div>
+                
+                <button class="eliminar-carrito">Eliminar</button>
+            </article>
+            <article class="producto-carrito">
+                <div class="img-producto-carrito">
+                    <img src="/images/JBLQuantum100.jpg" alt="">
+                </div>
+                <div class="texto-producto-carrito">
+                    <h4>JBL Quantum 100</h4><br>
+                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
+                    <select name="cantidad" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <p>$999</p>
+                </div>
+                
+                <button class="eliminar-carrito">Eliminar</button>
+            </article>
+            <article class="producto-carrito">
+                <div class="img-producto-carrito">
+                    <img src="/images/JBLQuantum300.jpg" alt="">
+                </div>
+                <div class="texto-producto-carrito">
+                    <h4>JBL Quantum 300</h4><br>
+                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
+                    <select name="cantidad" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <p>$999</p>
+                </div>
+                
+                <button class="eliminar-carrito">Eliminar</button>
+            </article>
+            
+        </div>
+        <div class="product-checkout">
+            <div class="price-checkout">
+                <p>JBL Quantum 50</p>
+                <p>$999</p>
+            </div>
+            <div class="price-checkout">
+                <p>JBL Quantum 100</p>
+                <p>$999</p>
+            </div>
+            <div class="price-checkout">
+                <p>JBL Quantum 300</p>
+                <p>$999</p>
+            </div>
+        </div>
+        <div class="checkout">
+            <div class="subtotal">
+                <p>Subtotal</p>
+                <p>$999</p>
+            </div>
+            <button class="checkout-button" type="submit">Comprar</button>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>    

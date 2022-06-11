@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const render = express.Render;
+
+app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
 const publicPath = path.resolve(__dirname, "./public")
@@ -10,21 +13,21 @@ app.listen(process.env.PORT || 3000, function(){
 })
 
 app.get("/", function(req, res){
-    res.sendFile(path.resolve(__dirname, "./views/index.html"))
+    res.render('index')
 })
 
 app.get("/login", function(req, res){
-    res.sendFile(path.resolve(__dirname, "./views/login.html"))
+    res.render('login')
 })
 
 app.get("/register", function(req, res){
-    res.sendFile(path.resolve(__dirname, "./views/register.html"))
+    res.render('register')
 })
 
 app.get("/productDetail", function(req, res){
-    res.sendFile(path.resolve(__dirname, "./views/productDetail.html"))
+    res.render('productDetail')
 })
 
 app.get("/productCart", function(req, res){
-    res.sendFile(path.resolve(__dirname, "./views/productCart.html"))
+    res.render('productCart')
 })
