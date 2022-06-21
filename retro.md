@@ -14,3 +14,20 @@
 
 ## Dejar de hacer
 #### Comunicarnos poco.
+
+# Retrospectiva 2
+
+## Comenzar a hacer
+#### Colocar las fechas limites en los tableros de trello 
+
+## Hacer mas
+#### Reunirnos mas seguido para mantenerlos al tanto de que esta haciendo cada uno 
+
+## Continuar haciendo
+#### Utilizar trello para tener un control de las actividades que estan realizando los miembros del equipo en tiempo real, utilizacion de metodologias agiles para crear un ambiente de trabajo mas dinamico,ademas de discutir ciertas variables en el proyecto para avanzar mas armonicamente.
+
+## Hacer menos
+#### Solucionar las dudas en grupo. Trabajar menos de forma individual.
+
+## Dejar de hacer
+#### Por el momento no tenemos que aportar a este item.

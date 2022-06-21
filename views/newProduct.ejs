@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+    <body>
+        <%- include('./partials/header') %>
+            <main>
+                <a href="/">&lt; Volver a la pagina anterior</a>
+                <article class="main-product-detail">
+                    <form action="/newProduct" method="POST">
+                        <div class="main-product-detail-div">
+                            <label for="imagen" class="img-product-detail">Tilulo del producto:</label>
+                                <br>
+                                <input type="file" name="imagen" class="img-product-detail">
+
+                            <img src="/images/JBLQuantum50.png" alt="" class="img-product-detail">
+                            <div class="desktop-description-div">
+                                <label for="titulo" class="nombre-del-producto">Tilulo del producto:</label>
+                                <br>
+                                <input type="text" name="titulo" class="nombre-del-producto" required>
+
+                                <label for="descripcion" class="descripcion-producto">Descripcion del producto:</label>
+                                <br>
+                                <input type="text-area" name="descripcion" class="descripcion-producto" required>
+
+                                <label for="precio" class="nombre-del-producto">Tilulo del producto:</label>
+                                <br>
+                                <input type="number" name="precio" class="precio-producto" required>
+
+                            
+                                <div class="cantidad-select">
+                                    <p>Unidades disponibles</p>
+                                    <br>
+                                    <select name="cantidad" id="">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">>5</option>
+                                    </select>
+                                    <label for="caracteristicas" class="descripcion-producto">Caracteriticas del producto</label>
+                                    <br>
+                                    <input type="text-area" name="caracteristicas" class="descripcion-producto" required>
+                                </div>
+                                <div class="product-detail-buttons">
+                                    <button type="submit" class="comprar-ahora">Agregar producto</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caracteristicas">
+
+
+                            
+                        </div>
+                        <div class="descripcion">
+                            <h4>Descripcion</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae consequuntur
+                                suscipit facere qui consectetur natus harum, tempore quasi non reiciendis obcaecati
+                                blanditiis ipsam itaque nemo et alias recusandae rem.</p>
+
+                        </div>
+                    </form>
+                </article>
+            </main>
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>

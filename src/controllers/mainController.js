@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('../../../pimienta-y-sal/src/routes/mainRouter');
+const router = require('../routes/mainRouter');
 
 const mainController ={
     index: function(req, res){
@@ -17,6 +17,11 @@ const mainController ={
     productCart: function(req, res){
         res.render('productCart');
     },
+
+    newProduct: function(req, res){
+        res.render('newProduct');
+    },
+
 }
 
 module.exports = mainController;
