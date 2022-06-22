@@ -25,11 +25,12 @@ const mainController ={
     editProduct: function(re, res){
         let producto = {
             img: '/images/JBLQuantum50.png',
-            titulo: 'titulo',
+            titulo: 'PARLANTE',
             precio: 999,
             descripcion: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq',
             caracteristicas: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq',
-            cantidad: 3
+            cantidad: 3,
+            categoria:"parlante"
         }
         res.render('editProduct', { producto: producto});
     }

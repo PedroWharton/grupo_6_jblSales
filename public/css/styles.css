@@ -169,6 +169,22 @@ main{
     padding: 4%;
     background-color: #DBDFFD;
 }
+main .newProduct{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1px;
+    width: min(900px, 80%);
+}
+
+main .descripcion-producto2{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1px;
+    width: min(900px, 80%);
+    height: 10%;
+}
 
 .rueda-productos{
     display: flex;
@@ -517,3 +533,5 @@ main .texto-producto-carrito h4{
     }
   
 }
+
+

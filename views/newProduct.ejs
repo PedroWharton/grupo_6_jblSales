@@ -9,51 +9,50 @@
                 <article class="main-product-detail">
                     <form action="/newProduct" method="POST">
                         <div class="main-product-detail-div">
-                            <label for="imagen" class="img-product-detail">Tilulo del producto:</label>
-                                <br>
-                                <input type="file" name="imagen" class="img-product-detail">
-
-                            <img src="/images/JBLQuantum50.png" alt="" class="img-product-detail">
-                            <div class="desktop-description-div">
-                                <label for="titulo" class="nombre-del-producto">Tilulo del producto:</label>
-                                <br>
-                                <input type="text" name="titulo" class="nombre-del-producto" required>
-
-                                <label for="descripcion" class="descripcion-producto">Descripcion del producto:</label>
-                                <br>
-                                <input type="text-area" name="descripcion" class="descripcion-producto" required>
-
-                                <label for="precio" class="nombre-del-producto">Tilulo del producto:</label>
-                                <br>
-                                <input type="number" name="precio" class="precio-producto" required>
-
                             
-                                <div class="cantidad-select">
-                                    <p>Unidades disponibles</p>
-                                    <br>
-                                    <select name="cantidad" id="">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">>5</option>
+                            <!-- <img src="/images/JBLQuantum50.png" alt="" class="img-product-detail"> -->
+                            <div class="newProduct">
+                                <h2>NUEVO PRODUCTO</h2>
+                                <br>
+                                <label for="titulo" class="newProduct"><b> Tilulo del producto:</b> </label>
+                                <br>
+                                <input type="text" name="titulo" class="newProduct"  required>
+                                <br>
+                                <h4>Inserte imagen</h4>
+                                <input type="file" name="imagen" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
+                                <br>
+                                <label for="descripcion" class="newProduct"><b>Precio </b> </label>
+                                <br>
+                                <input type="text-area" name="descripcion" class="newProduct" required>
+                                <br>
+                                <label for="precio" class="newProduct"><b> Categoria </b> </label>
+                                <br>
+                                <div class="newProduct">
+                                    <select name="categoria" id="">
+                                        <option value="1">PARLANTES</option>
+                                        <option value="2">AURICULARES</option>
+                                        <option value="3">GAMMING</option>
+                                        <option value="4">STEREO</option>
+                                        <option value="5">OTRO</option>
                                     </select>
-                                    <label for="caracteristicas" class="descripcion-producto">Caracteriticas del producto</label>
-                                    <br>
-                                    <input type="text-area" name="caracteristicas" class="descripcion-producto" required>
                                 </div>
-                                <div class="product-detail-buttons">
-                                    <button type="submit" class="comprar-ahora">Agregar producto</button>
-                                   
+            
+                                <br>
+                                <label for="unidades" class="newProduct"><b>Unidades disponibles: </b> </label>
+                                <br>                                    
+                                <input type="number" name="unidades" class="newProduct" required>
+                                <br>
+                                <label for="caracteristicas" class="descripcion-producto2"><b> Caracteriticas del
+                                    producto </b> </label>
+                                <br>
+                                    <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2" required></textarea>
+                
+                                <div class="">
+                                    <button type="submit" class="comprar-ahora"><b>Agregar producto </b> </button>
+                                    <button type="reset" class="comprar-ahora"><b> Borrar todo</b> </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="caracteristicas">
-
-
-                            
-                        </div>
-                        
                     </form>
                 </article>
             </main>
