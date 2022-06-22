@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+<%- include('../partials/head') %>
 
     <body>
-        <%- include('./partials/header') %>
+        <%- include('../partials/header') %>
             <main>
                 <a href="/">&lt; Volver a la pagina anterior</a>
                 <article class="main-product-detail">
@@ -14,18 +14,18 @@
                             <div class="newProduct">
                                 <h2>NUEVO PRODUCTO</h2>
                                 <br>
-                                <label for="titulo" class="newProduct"><b> Tilulo del producto:</b> </label>
+                                <label for="titulo" class="newProduct"><b>Tilulo del producto:</b> </label>
                                 <br>
                                 <input type="text" name="titulo" class="newProduct"  required>
                                 <br>
-                                <h4>Inserte imagen</h4>
+                                <label for="titulo" class="newProduct" id="imagen-newProduct"><b>Inserte Imagen</b></label>
                                 <input type="file" name="imagen" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
                                 <br>
                                 <label for="descripcion" class="newProduct"><b>Precio </b> </label>
                                 <br>
                                 <input type="text-area" name="descripcion" class="newProduct" required>
                                 <br>
-                                <label for="precio" class="newProduct"><b> Categoria </b> </label>
+                                <label for="precio" class="newProduct"><b>Categoria</b></label>
                                 <br>
                                 <div class="newProduct">
                                     <select name="categoria" id="">
@@ -42,7 +42,7 @@
                                 <br>                                    
                                 <input type="number" name="unidades" class="newProduct" required>
                                 <br>
-                                <label for="caracteristicas" class="descripcion-producto2"><b> Caracteriticas del
+                                <label for="caracteristicas" class="newProduct"><b> Caracteriticas del
                                     producto </b> </label>
                                 <br>
                                     <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2" required></textarea>
@@ -56,7 +56,7 @@
                     </form>
                 </article>
             </main>
-            <%- include('./partials/footer') %>
+            <%- include('../partials/footer') %>
     </body>
 
 </html>

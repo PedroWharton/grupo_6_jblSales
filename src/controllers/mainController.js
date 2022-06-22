@@ -7,20 +7,20 @@ const mainController ={
         res.render('index');
     },
     login: function(req, res){
-        res.render('login');
+        res.render('./user/login');
     },
     register: function(req, res){
-        res.render('register');
+        res.render('./user/register.ejs');
     },
     productDetail: function(req, res){
-        res.render('productDetail');
+        res.render('./products/productDetail');
     },
     productCart: function(req, res){
-        res.render('productCart');
+        res.render('./products/productCart');
     },
 
     newProduct: function(req, res){
-        res.render('newProduct');
+        res.render('./products/newProduct.ejs');
     },
     editProduct: function(re, res){
         let producto = {

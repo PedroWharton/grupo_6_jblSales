@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
+<%- include('../partials/head') %>
 
     <body>
-        <%- include('./partials/header') %>
+        <%- include('../partials/header') %>
             <main>
                     <form action="/newProduct" method="POST">
                         <div class="main-product-detail-div">
-                            
-                            <!-- <img src="/images/JBLQuantum50.png" alt="" class="img-product-detail"> -->
                             <div class="newProduct">
                                 <h1>EDITAR PRODUCTO</h1>
                                 <br>
                                 <h3>TITULO ACTUAL: <%= producto.titulo %></h3>
-                                <label for="titulo" class="newProduct">Nuevo tilulo del producto:</label>
+                                <label for="titulo" class="newProduct"><b>Nuevo tilulo del producto:</b></label>
                                 <br>
-                                <input type="text" name="titulo" class="newProduct"  required>
+                                <input type="text" name="titulo" class="newProduct">
                                 <br>
                                 <h3>IMAGEN ACTUAL</h3>
                                 <img src='<%= producto.img %>' class="img-product-detail"/>
                                 <input type="file" name="imagen" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
                                 <br>
                                 <H3>PRECIO ACTUAL: <%= producto.precio%></H3>
-                                <label for="descripcion" class="newProduct">Precio </label>
+                                <label for="descripcion" class="newProduct"><b>Precio</b></label>
                                 <br>
-                                <input type="text-area" name="descripcion" class="newProduct" required>
+                                <input type="text-area" name="descripcion" class="newProduct">
                                 <br>
-                                <h3>CATEGORIA ACTUAL:<%= producto.categoria %></h3>
-                                <label for="precio" class="newProduct">Categoria</label>
+                                <h3>CATEGORIA ACTUAL: <%= producto.categoria %></h3>
+                                <label for="precio" class="newProduct"><b>Categoria</b></label>
                                 <br>
-                                <input type="text" name="precio" class="newProduct" required>
+                                <input type="text" name="precio" class="newProduct">
                                 <br>
-                                <h3>UNIDADES DISPONILES ACTUALMENTE:<%= producto.cantidad%></h3>
-                                <label for="unidades" class="newProduct">Unidades disponibles:</label>
+                                <h3>UNIDADES DISPONILES ACTUALMENTE: <%= producto.cantidad %></h3>
+                                <label for="unidades" class="newProduct"><b>Unidades disponibles:</b></label>
                                 <br>                                    
-                                <input type="number" name="unidades" class="newProduct" required>
+                                <input type="number" name="unidades" class="newProduct">
                                 <br>
                                 <h3>ACTUALES CARACTERISTICAS DEL PRODUCTO:</h3>
-                                <%= producto.descripcion%>
-                                <label for="caracteristicas" class="descripcion-producto2">Caracteriticas del
-                                    producto</label>
+                                <p><%= producto.descripcion%></p>
+                                <label for="caracteristicas" class="newProduct"><b>Caracteriticas del producto</b></label>
                                 <br>
-                                    <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2" required></textarea>
-                
+                                <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2"></textarea>
                                 <div class="">
                                     <button type="submit" class="comprar-ahora">Actualizar producto</button>
                                     <button type="reset" class="comprar-ahora">Borrar cambios</button>
@@ -52,7 +48,7 @@
                     </form>
                 </article>
             </main>
-            <%- include('./partials/footer') %>
+            <%- include('../partials/footer') %>
     </body>
 
 </html>

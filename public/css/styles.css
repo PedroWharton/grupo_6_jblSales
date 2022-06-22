@@ -171,19 +171,25 @@ main{
 }
 main .newProduct{
     display: block;
-    text-align: center;
     margin: auto;
-    margin-bottom: 1px;
-    width: min(900px, 80%);
+    width: min(900px, 100%);
+}
+
+main #imagen-newProduct{
+    margin-bottom: 12px;
+}
+main input.newProduct{
+    border-radius: 6px;
+    height: 30px;
 }
 
 main .descripcion-producto2{
     display: block;
-    text-align: center;
     margin: auto;
-    margin-bottom: 1px;
-    width: min(900px, 80%);
-    height: 10%;
+    width: min(900px, 100%);
+    height: 90px;
+    border-radius: 8px;
+    margin-bottom: 4px;
 }
 
 .rueda-productos{
@@ -368,7 +374,7 @@ main .texto-producto-carrito h4{
 
 .comprar-ahora, .agregar-carrito{
     width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 8px;
     margin-top: 4px;
     background-color: #242F9B;
