@@ -32,7 +32,7 @@ const mainController ={
             cantidad: 3,
             categoria:"parlante"
         }
-        res.render('editProduct', { producto: producto});
+        res.render('./products/editProduct', { producto: producto});
     }
 
 }
