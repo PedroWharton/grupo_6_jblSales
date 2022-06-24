@@ -6,13 +6,15 @@
     <main>
         <h1>Carrito de Compras</h1>
         <div class="articulos-carrito">
-            <article class="producto-carrito">
+            <% let subtotal = 0 %>    
+            <% for(product of products) { %>
+            <article class="producto-carrito">    
                 <div class="img-producto-carrito">
-                    <img src="/images/JBLQuantum50.png" alt="">
+                    <img src="/images/<%= product.img %>" alt="">
                 </div>
                 <div class="texto-producto-carrito">
-                    <h4>JBL Quantum 50</h4><br>
-                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
+                    <h4><%= product.name %></h4><br>
+                    <p class="descripcion-producto"><%= product.description %></p>
                     <select name="cantidad" id="">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -20,69 +22,30 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    <p>$999</p>
+                    <p>$<%= product.price %></p>
                 </div>
                 
                 <button class="eliminar-carrito">Eliminar</button>
             </article>
-            <article class="producto-carrito">
-                <div class="img-producto-carrito">
-                    <img src="/images/JBLQuantum100.jpg" alt="">
-                </div>
-                <div class="texto-producto-carrito">
-                    <h4>JBL Quantum 100</h4><br>
-                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
-                    <select name="cantidad" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <p>$999</p>
-                </div>
-                
-                <button class="eliminar-carrito">Eliminar</button>
-            </article>
-            <article class="producto-carrito">
-                <div class="img-producto-carrito">
-                    <img src="/images/JBLQuantum300.jpg" alt="">
-                </div>
-                <div class="texto-producto-carrito">
-                    <h4>JBL Quantum 300</h4><br>
-                    <p class="descripcion-producto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos quae exercitationem enim nulla, cupiditate fugiat tempore ab hic repellendus quidem itaque pariatur adipisci vel impedit vitae, ex est optio eaque.</p>
-                    <select name="cantidad" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <p>$999</p>
-                </div>
-                
-                <button class="eliminar-carrito">Eliminar</button>
-            </article>
+            <% } %>
             
         </div>
         <div class="product-checkout">
+            <% for(product of products) { %> 
             <div class="price-checkout">
-                <p>JBL Quantum 50</p>
-                <p>$999</p>
+                
+                <p><%= product.name %></p>
+                <p>$<%= product.price %></p>
+                
             </div>
-            <div class="price-checkout">
-                <p>JBL Quantum 100</p>
-                <p>$999</p>
-            </div>
-            <div class="price-checkout">
-                <p>JBL Quantum 300</p>
-                <p>$999</p>
-            </div>
+            <% subtotal = subtotal + product.price %>
+            <% } %>
         </div>
+         
         <div class="checkout">
             <div class="subtotal">
-                <p>Subtotal</p>
-                <p>$999</p>
+                <p>Subtotal</p>     
+                <p>$<%= subtotal %></p>
             </div>
             <button class="checkout-button" type="submit">Comprar</button>
         </div>

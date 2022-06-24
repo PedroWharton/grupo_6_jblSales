@@ -6,11 +6,14 @@ const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const mainController ={
-    index: function(req, res){
-        res.render('index', { products });
+const usersController ={
+    login: function(req, res){
+        res.render('./user/login');
+    },
+    register: function(req, res){
+        res.render('./user/register.ejs');
     }
 
 }
 
-module.exports = mainController;
+module.exports = usersController;

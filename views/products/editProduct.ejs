@@ -5,40 +5,35 @@
     <body>
         <%- include('../partials/header') %>
             <main>
-                    <form action="/newProduct" method="POST">
+                    <form action="/products/<%= product.id %>?_method=PUT" method="POST">
                         <div class="main-product-detail-div">
                             <div class="newProduct">
                                 <h1>EDITAR PRODUCTO</h1>
                                 <br>
-                                <h3>TITULO ACTUAL: <%= producto.titulo %></h3>
-                                <label for="titulo" class="newProduct"><b>Nuevo tilulo del producto:</b></label>
+                                <h3>TITULO ACTUAL: <%= product.name %></h3>
+                                <label for="name" class="newProduct"><b>Nuevo tilulo del producto:</b></label>
                                 <br>
-                                <input type="text" name="titulo" class="newProduct">
+                                <input type="text" name="name" id="name" class="newProduct">
                                 <br>
                                 <h3>IMAGEN ACTUAL</h3>
-                                <img src='<%= producto.img %>' class="img-product-detail"/>
-                                <input type="file" name="imagen" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
+                                <img src='/images/<%= product.img %>' class="img-product-detail"/>
+                                <input type="file" name="img" id="img" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
                                 <br>
-                                <H3>PRECIO ACTUAL: <%= producto.precio%></H3>
-                                <label for="descripcion" class="newProduct"><b>Precio</b></label>
+                                <H3>PRECIO ACTUAL: <%= product.price %></H3>
+                                <label for="description" class="newProduct"><b>Precio</b></label>
                                 <br>
-                                <input type="text-area" name="descripcion" class="newProduct">
+                                <input type="text-area" name="description" id="description" class="newProduct">
                                 <br>
-                                <h3>CATEGORIA ACTUAL: <%= producto.categoria %></h3>
-                                <label for="precio" class="newProduct"><b>Categoria</b></label>
+                                <h3>CATEGORIA ACTUAL: <%= product.category %></h3>
+                                <label for="price" class="newProduct"><b>Categoria</b></label>
                                 <br>
-                                <input type="text" name="precio" class="newProduct">
-                                <br>
-                                <h3>UNIDADES DISPONILES ACTUALMENTE: <%= producto.cantidad %></h3>
-                                <label for="unidades" class="newProduct"><b>Unidades disponibles:</b></label>
-                                <br>                                    
-                                <input type="number" name="unidades" class="newProduct">
+                                <input type="text" name="price" id="price" class="newProduct">
                                 <br>
                                 <h3>ACTUALES CARACTERISTICAS DEL PRODUCTO:</h3>
-                                <p><%= producto.descripcion%></p>
-                                <label for="caracteristicas" class="newProduct"><b>Caracteriticas del producto</b></label>
+                                <p><%= product.description%></p>
+                                <label for="caracteristics" class="newProduct"><b>Caracteriticas del producto</b></label>
                                 <br>
-                                <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2"></textarea>
+                                <textarea id="caracteristics" name="caracteristics" class="descripcion-producto2"></textarea>
                                 <div class="">
                                     <button type="submit" class="comprar-ahora">Actualizar producto</button>
                                     <button type="reset" class="comprar-ahora">Borrar cambios</button>

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('./partials/head') %>
+<%- include('../partials/head') %>
 <body>
-    <%- include('./partials/header') %>
-    <div class="banner">
-        <img class="img-banner" src="/images/banner.jpg" alt="">
-    </div>
+    <%- include('../partials/header') %>
     <main>
-        <h2 class="promociones">Promociones</h2>
+        <h2 class="promociones">Productos</h2>
         <div class="rueda-productos">
             <% for(product of products) { %>
                 <article class="producto"><a href="/products/productDetail/<%= product.id %>">
@@ -19,9 +16,7 @@
                 </article>
             <% } %>    
         </div>
-        <h2>Algo sobre la pagina</h2>
-        <div>Contenido a evaluar</div>
     </main>
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

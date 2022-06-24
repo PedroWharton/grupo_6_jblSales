@@ -7,33 +7,32 @@
             <main>
                 <a href="/">&lt; Volver a la pagina anterior</a>
                 <article class="main-product-detail">
-                    <form action="/newProduct" method="POST">
+                    <form action="/products/newProduct" method="POST">
                         <div class="main-product-detail-div">
                             
-                            <!-- <img src="/images/JBLQuantum50.png" alt="" class="img-product-detail"> -->
                             <div class="newProduct">
                                 <h2>NUEVO PRODUCTO</h2>
                                 <br>
-                                <label for="titulo" class="newProduct"><b>Tilulo del producto:</b> </label>
+                                <label for="name" class="newProduct"><b>Tilulo del producto:</b> </label>
                                 <br>
-                                <input type="text" name="titulo" class="newProduct"  required>
+                                <input type="text" name="name" class="newProduct"  required>
                                 <br>
                                 <label for="titulo" class="newProduct" id="imagen-newProduct"><b>Inserte Imagen</b></label>
-                                <input type="file" name="imagen" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
+                                <input type="file" name="img" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
                                 <br>
                                 <label for="descripcion" class="newProduct"><b>Precio </b> </label>
                                 <br>
-                                <input type="text-area" name="descripcion" class="newProduct" required>
+                                <input type="text-area" name="price" class="newProduct" required>
                                 <br>
                                 <label for="precio" class="newProduct"><b>Categoria</b></label>
                                 <br>
                                 <div class="newProduct">
-                                    <select name="categoria" id="">
-                                        <option value="1">PARLANTES</option>
-                                        <option value="2">AURICULARES</option>
-                                        <option value="3">GAMMING</option>
-                                        <option value="4">STEREO</option>
-                                        <option value="5">OTRO</option>
+                                    <select name="category" id="">
+                                        <option value="parlantes">PARLANTES</option>
+                                        <option value="auriculares">AURICULARES</option>
+                                        <option value="gaming">GAMING</option>
+                                        <option value="notebook">NOTEBOOK</option>
+                                        <option value="otro">OTRO</option>
                                     </select>
                                 </div>
             
@@ -45,7 +44,7 @@
                                 <label for="caracteristicas" class="newProduct"><b> Caracteriticas del
                                     producto </b> </label>
                                 <br>
-                                    <textarea id="caracteristicas" name="caracteristicas" class="descripcion-producto2" required></textarea>
+                                    <textarea id="caracteristicas" name="caracteristics" class="descripcion-producto2" required></textarea>
                 
                                 <div class="">
                                     <button type="submit" class="comprar-ahora"><b>Agregar producto </b> </button>
