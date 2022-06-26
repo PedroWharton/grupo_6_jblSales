@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "avatar": "Logo.png",
+        "username": "ADMIN",
+        "email": "admin@hotmail.com",
+        "password": "password",
+        "admin": true
+    },
+    {
+        "id": 2,
+        "avatar": "Logo.png",
+        "username": "Felipe",
+        "email": "Felipemontaña@hotmail.com",
+        "password": "password",
+        "admin": false
+    },
+    {
+        "id": 3,
+        "avatar": "Logo.png",
+        "username": "PedroWharton",
+        "email": "pedrowharton@hotmail.com",
+        "password": "password",
+        "admin": false
+    }
+]
