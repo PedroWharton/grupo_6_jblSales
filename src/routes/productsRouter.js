@@ -23,6 +23,7 @@ router.post('/:id', productsController.añadirCarrito);
 
 router.get('/editProduct/:id', productsController.editProduct);
 router.put('/:id', productsController.editProductFunction);
+router.delete('/:id', productsController.deleteProduct);
 
 router.get('/ProductCart', productsController.productCart);
 

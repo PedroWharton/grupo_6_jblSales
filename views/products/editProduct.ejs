@@ -41,6 +41,13 @@
                             </div>
                         </div>
                     </form>
+                    <div class="main-product-detail-div">
+                        <div class="newProduct">
+                            <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="comprar-ahora" style="color: red">Borrar</button>
+                            </form>
+                        </div>
+                    </div>        
                 </article>
             </main>
             <%- include('../partials/footer') %>

@@ -61,6 +61,8 @@ const productController ={
         for(let product of toEditProducts){
             if(req.params.id == product.id){
                 toEditProducts[i] = req.body;
+                toEditProducts[i].id = req.params.id;
+                toEditProducts[i].img = "Logo.png"
             }
             i++;
         }
@@ -68,6 +70,19 @@ const productController ={
 		fs.writeFileSync(productsFilePath, jsonproducts)
 		res.render('index', { products })
         
+    },
+    deleteProduct: function(req, res){
+        let i = 0;
+        let toEditProducts = products
+        for(let product of products){
+            if(req.params.id == product.id){
+                toEditProducts = products.splice(i, 1);
+            }
+            i++;
+        }
+        let jsonproducts = JSON.stringify(toEditProducts)
+		fs.writeFileSync(productsFilePath, jsonproducts)
+		res.render('index', { products })
     },
 
     añadirCarrito: function(req, res){
