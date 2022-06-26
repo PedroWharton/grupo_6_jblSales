@@ -44,7 +44,7 @@ const productController ={
     newProductFunction: function(req, res){
         let newProduct= req.body;
 		newProduct.id = products[products.length -1].id + 1;
-		newProduct.img = "logo.png"
+		newProduct.img = req.file.filename;
 		products.push(newProduct)
 		jsonproducts = JSON.stringify(products)
 		fs.writeFileSync(productsFilePath, jsonproducts)
