@@ -127,6 +127,8 @@ header ul{
     display: flex;
     flex-wrap: wrap;
     padding: 8px;
+    margin-top: revert;
+    margin-bottom: 12px;
 }
 
 header a{
@@ -232,6 +234,10 @@ main .descripcion-producto2{
 .register-form div{
     width: 80%;
     margin: auto;
+}
+
+.register-form .text-danger{
+    width: 96%;
 }
 
 .register-form input{
@@ -467,6 +473,7 @@ main .texto-producto-carrito h4{
 }
 .card-img{
     margin: 0 5px 5px 0;
+    width: auto;
 }
 
 @media screen and (max-width:769px){ 

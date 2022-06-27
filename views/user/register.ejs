@@ -10,7 +10,7 @@
                     <div>
                         <label for="username"><b>Nombre de Usuario</b></label><br>
                         <input type="text" placeholder="Nombre de Usuario" name="username" id="username"
-                               class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                               class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
                                value="<%= locals.oldData ? oldData.username : null %>"  ><br>
                         <% if(locals.errors && errors.username) { %>
                             <div class="text-danger"><%= errors.username.msg %></div>
@@ -19,7 +19,7 @@
                     <div>
                         <label for="email"><b>Email</b></label><br>
                         <input type="text" placeholder="Email" name="email" id="email" 
-                               class="<%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                               class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
                                value="<%= locals.oldData ? oldData.email : null %>"><br>
                         <% if(locals.errors && errors.email) { %>
                             <div class="text-danger"><%= errors.email.msg %></div>
@@ -28,7 +28,7 @@
                     <div>
                         <label for="password"><b>Contraseña</b></label><br>
                         <input type="password" placeholder="Contraseña" name="password" id="password"
-                               class="<%= locals.errors && errors.password ? 'is-invalid' : null %>" ><br>
+                               class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>" ><br>
                         <% if(locals.errors && errors.password) { %>
                             <div class="text-danger"><%= errors.password.msg %></div>
                         <% } %>
@@ -36,7 +36,7 @@
                     <div>
                         <label for="pswRepeat"><b>Repita Contraseña</b></label><br>
                         <input type="password" placeholder="Repita contraseña" name="pswRepeat" id="pswRepeat"
-                               class="<%= locals.errors && errors.pswRepeat ? 'is-invalid' : null %>" ><br>
+                               class="form-control <%= locals.errors && errors.pswRepeat ? 'is-invalid' : null %>" ><br>
                         <% if(locals.errors && errors.pswRepeat) { %>
                             <div class="text-danger"><%= errors.pswRepeat.msg %></div>
                         <% } %>
