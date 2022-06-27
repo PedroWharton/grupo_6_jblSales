@@ -40,6 +40,14 @@
                 <p><%= product.description %></p>
 
             </div>
+            <div class="register-button">
+                <form action="/products/editProduct/<%= product.id %>" method="get">
+                    <button type="submit" class="comprar-ahora">Editar Producto</button>
+                </form>
+                <form action="/products/newProduct" method="get">
+                    <button type="submit" class="agregar-carrito">Agregar Producto</button>
+                </form>
+            </div>
         </article>
     </main>
     <%- include('../partials/footer') %>
