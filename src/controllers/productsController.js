@@ -2,6 +2,7 @@ const express = require('express');
 const router = require('../routes/mainRouter');
 const path = require('path');
 const fs = require('fs');
+const { userInfo } = require('os');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -29,8 +30,10 @@ const productController ={
         
     },
 
-    productDetail: function(req, res){
-        res.render('./products/productDetail', {product: productController.buscarProducto(req.params.id) });
+    productDetail: (req, res) => {
+        let productd = productController.buscarProducto(req.params.id)
+        console.log(this)
+        res.render('./products/productDetail', {product: productd });
     },
 
     productCart: function(req, res){
@@ -73,21 +76,28 @@ const productController ={
     },
     deleteProduct: function(req, res){
         let i = 0;
-        let toEditProducts = products
         for(let product of products){
             if(req.params.id == product.id){
-                toEditProducts = products.splice(i, 1);
+                products.splice(i, 1);
             }
             i++;
         }
-        let jsonproducts = JSON.stringify(toEditProducts)
+        let jsonproducts = JSON.stringify(products, null, ' ')
 		fs.writeFileSync(productsFilePath, jsonproducts)
 		res.render('index', { products })
     },
 
     añadirCarrito: function(req, res){
         /*** Funcionalidad que añada el producto al carrito ***/ 
-        /***res.render('./products/productCart',  pasar productos que el usuario tiene al carrito )***/
+        /* asumo que tengo el id de usuario */
+        /* user.push(producto a agregar) */
+        let cartProducts;
+        for(let product of products){
+            if(userInfo.cart.includes(product.id)){
+                cartProducts.push(product)
+            }
+        }
+        res.render('./products/productCart', {product: cartProducts})
     }
 
 }

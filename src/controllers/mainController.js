@@ -11,11 +11,10 @@ const mainController ={
         res.render('index', { products });
     },
     search: function(req, res){
-        let qs = req.query.query;
-		console.log(qs)
+        let qs = req.query.query.toLowerCase();
 		let busqueda = [];
 		for(let product of products){
-			if(product.name.includes(qs) || product.description.includes(qs)){
+			if(product.name.toLowerCase().includes(qs) || product.description.toLowerCase().includes(qs)){
 				busqueda.push(product);
 			}
 		}

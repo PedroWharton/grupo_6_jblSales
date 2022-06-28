@@ -24,9 +24,12 @@
         </ul>
         <div>
             <ul>
-                <li><a href="/user/login">Inicia Sesion</a></li>
-                <li><a href="/user/register">Registro</a></li>
-                <li style="display: none"><a href="#">Mi cuenta</a></li>
+                <% if (!locals.isLogged) { %>
+                    <li><a href="/user/login">Inicia Sesion</a></li>
+                    <li><a href="/user/register">Registro</a></li>
+                <% } else { %>
+                <li><a href="/user/detail">Mi cuenta</a></li>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -38,9 +41,12 @@
         </a>
         <div class="cuenta">
             <ul>
-                <li><a href="/user/login">Inicia Sesion</a></li>
-                <li><a href="/user/register">Registro</a></li>
-                <li style="display: none"><a href="#">Mi cuenta</a></li>
+                <% if (!locals.isLogged) { %>
+                    <li><a href="/user/login">Inicia Sesion</a></li>
+                    <li><a href="/user/register">Registro</a></li>
+                <% } else { %>
+                <li><a href="/user/detail">Mi cuenta</a></li>
+                <% } %>
             </ul>
         </div>
     </div>

@@ -1,26 +1,60 @@
 [
-    {
-        "id": 1,
-        "avatar": "Logo.png",
-        "username": "ADMIN",
-        "email": "admin@hotmail.com",
-        "password": "password",
-        "admin": true
-    },
-    {
-        "id": 2,
-        "avatar": "Logo.png",
-        "username": "Felipe",
-        "email": "Felipemontaña@hotmail.com",
-        "password": "password",
-        "admin": false
-    },
-    {
-        "id": 3,
-        "avatar": "Logo.png",
-        "username": "PedroWharton",
-        "email": "pedrowharton@hotmail.com",
-        "password": "password",
-        "admin": false
-    }
+ {
+  "id": 1,
+  "avatar": "Logo.png",
+  "username": "ADMIN",
+  "email": "admin@hotmail.com",
+  "password": "password",
+  "admin": true
+ },
+ {
+  "id": 2,
+  "avatar": "Logo.png",
+  "username": "Felipe",
+  "email": "Felipemontaña@hotmail.com",
+  "password": "password",
+  "admin": false
+ },
+ {
+  "id": 3,
+  "avatar": "Logo.png",
+  "username": "PedroWharton",
+  "email": "pedrowharton@hotmail.com",
+  "password": "password",
+  "admin": false
+ },
+ {
+  "id": 4,
+  "username": "pedrowharton",
+  "email": "pedrowharton@gmail.com",
+  "password": "$2a$10$5nd9.p8WHp5srEVv0MpZhu1MacUG936W9pjMPrfEdz5kzFwCJGzXy",
+  "avatar": "Logo.png",
+  "admin": false
+ },
+ {
+  "id": 5,
+  "username": "getfinanciallyfreed",
+  "email": "pedrowharon@gmail.com",
+  "password": "$2a$10$yS5ErOpjpH5x.TshinBb9OUs713SaGEcb.xdzmRdpBUoQr1rwYNwe",
+  "avatar": "Logo.png",
+  "admin": false
+ },
+ {
+  "id": 7,
+  "username": "wharton_stephen@yahoo.com.ar",
+  "email": "wharton_stephen@yahoo.com.ar",
+  "password": "$2a$10$UzfWp36euw5K1tNMeUGsGeKiuOpyXdudmD7IHb9sm/B6o7zlWa5VG",
+  "avatar": "Logo.png",
+  "cart": [],
+  "admin": false
+ },
+ {
+  "id": 9,
+  "username": "getfinanciallyfreedh",
+  "email": "pdrowharton@gmail.com",
+  "password": "$2a$10$xEhnKgIhDJZWSo2A0wOkZuCHXXE8zQ4CGigfLJHUBU/ETCmllCb4.",
+  "avatar": "Logo.png",
+  "cart": [],
+  "admin": false
+ }
 ]
