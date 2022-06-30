@@ -1,4 +1,4 @@
-const multer = require('multer')
+const multer = require('multer');
 const { body } = require('express-validator');
 
 

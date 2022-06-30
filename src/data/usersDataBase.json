@@ -48,14 +48,5 @@
   "avatar": "Logo.png",
   "cart": [],
   "admin": false
- },
- {
-  "id": 8,
-  "username": "",
-  "email": "",
-  "password": "$2a$10$nzmtqogotdRHIBULM9zXgO58vYCtD6FH.S01idmnOGM01OT3n2key",
-  "avatar": "Logo.png",
-  "cart": [],
-  "admin": false
  }
 ]

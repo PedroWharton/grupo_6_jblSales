@@ -67,6 +67,13 @@ const usersController ={
         let mailInDB = User.findByField('email', req.body.email);
         let usernameInDB = User.findByField('username', req.body.username);
 
+        if(resultValidation.errors.length > 0){
+            res.render('./user/register', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+        
         if(mailInDB){
             return res.render('./user/register', {
                 errors: {
@@ -87,17 +94,12 @@ const usersController ={
                 oldData: req.body
             })
         }
-        if(resultValidation.errors.length > 0){
-            res.render('./user/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
-        }
+
         delete req.body.pswRepeat;
         let userToCreate = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password),
-            avatar: 'Logo.png',
+            avatar: req.file.filename,
             cart: []
         }
         User.create(userToCreate)
