@@ -18,4 +18,7 @@ router.get('/detail', authMiddleware, usersController.detail);
 
 router.get('/logout', usersController.logout);
 
+
+router.post('/:id', usersController.añadirCarrito);
+
 module.exports = router;

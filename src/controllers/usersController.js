@@ -16,6 +16,7 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const usersController ={
     detail: function(req, res){
         let userLogged = req.session.userLogged
+        console.log(userLogged)
         res.render('./user/detail', {user: userLogged})
     },
 
@@ -57,8 +58,6 @@ const usersController ={
     },
 
     register: function(req, res){
-        
-        res.cookie('testing', "hola mundo", {maxAge: 1000 * 30})
         res.render('./user/register');
     },
 
@@ -110,6 +109,25 @@ const usersController ={
         res.clearCookie('username')
         req.session.destroy();
         res.redirect('/')
+    },
+
+    añadirCarrito: function(req, res){
+        if(!req.session.userLogged){
+            res.redirect('/user/login');
+        }
+
+        let cartProducts = req.session.userLogged.cart;
+        let newCart= [];
+        
+        for(let product of products){
+            for(let i = 0; i < cartProducts.length; i++){
+                if(req.params.id == product.id || product.id == cartProducts[i]){
+                    newCart.push(product)
+                }
+            }
+        }
+        
+        res.render('./products/productCart', {products: newCart})
     }
 }
 

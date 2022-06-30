@@ -10,7 +10,6 @@ router.get('/newProduct', productsController.newProduct);
 router.post('/newProduct', uploadFile.single('img'), productsController.newProductFunction);
 
 router.get('/productDetail/:id', productsController.productDetail);
-router.post('/:id', productsController.añadirCarrito);
 
 router.get('/editProduct/:id', productsController.editProduct);
 router.put('/:id', productsController.editProductFunction);

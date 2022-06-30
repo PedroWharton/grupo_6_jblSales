@@ -37,7 +37,19 @@ const productController ={
     },
 
     productCart: function(req, res){
-        res.render('./products/productCart', { /*** pasar productos que el usuario tiene al carrito ***/products } );
+        /* user.push(producto a agregar) */
+        let cartProducts = req.session.userLogged.cart;
+        let filteredproducts = [];
+        for(let i = 0; i < products.length; i++){
+            for(let j = 0; j < cartProducts.length; j++){
+                if(products[i].id == cartProducts[j]){
+                    filteredproducts.push(products[i]);
+                }
+            }
+        }
+        
+
+        res.render('./products/productCart', { products: filteredproducts } );
     },
 
     newProduct: function(req, res){
@@ -85,20 +97,9 @@ const productController ={
         let jsonproducts = JSON.stringify(products, null, ' ')
 		fs.writeFileSync(productsFilePath, jsonproducts)
 		res.render('index', { products })
-    },
-
-    añadirCarrito: function(req, res){
-        /*** Funcionalidad que añada el producto al carrito ***/ 
-        /* asumo que tengo el id de usuario */
-        /* user.push(producto a agregar) */
-        let cartProducts;
-        for(let product of products){
-            if(userInfo.cart.includes(product.id)){
-                cartProducts.push(product)
-            }
-        }
-        res.render('./products/productCart', {product: cartProducts})
     }
+
+    
 
 }
 

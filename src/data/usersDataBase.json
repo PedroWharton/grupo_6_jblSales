@@ -29,6 +29,7 @@
   "email": "pedrowharton@gmail.com",
   "password": "$2a$10$5nd9.p8WHp5srEVv0MpZhu1MacUG936W9pjMPrfEdz5kzFwCJGzXy",
   "avatar": "Logo.png",
+  "cart": [1],
   "admin": false
  },
  {
@@ -49,10 +50,10 @@
   "admin": false
  },
  {
-  "id": 9,
-  "username": "getfinanciallyfreedh",
-  "email": "pdrowharton@gmail.com",
-  "password": "$2a$10$xEhnKgIhDJZWSo2A0wOkZuCHXXE8zQ4CGigfLJHUBU/ETCmllCb4.",
+  "id": 8,
+  "username": "",
+  "email": "",
+  "password": "$2a$10$nzmtqogotdRHIBULM9zXgO58vYCtD6FH.S01idmnOGM01OT3n2key",
   "avatar": "Logo.png",
   "cart": [],
   "admin": false
