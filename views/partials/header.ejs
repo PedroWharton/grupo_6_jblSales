@@ -68,9 +68,12 @@
         </a>
         <div class="cuenta">
             <ul>
-                <li><a href="login">Inicia Sesion</a></li>
-                <li><a href="register">Registro</a></li>
-                <li style="display: none"><a href="#">Mi cuenta</a></li>
+                <% if (!locals.isLogged) { %>
+                    <li><a href="/user/login">Inicia Sesion</a></li>
+                    <li><a href="/user/register">Registro</a></li>
+                <% } else { %>
+                <li><a href="/user/detail">Mi cuenta</a></li>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -79,9 +82,9 @@
             <form action="#" method="POST">
                 <input class="input" type="text" placeholder="Buscar">
                 <button class="submit" type="submit"><i class="fa fa-search"></i></button>
-            </form>    
+            </form>
         </div>
-        <a href="productCart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a><i class="fa-solid fa-bars"></i></a>
+        <a href="/products/productCart" id="carrito-movil"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a class="burger-menu"><i class="fa-solid fa-bars"></i></a>
     </div>
 </header>

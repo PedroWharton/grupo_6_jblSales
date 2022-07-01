@@ -16,12 +16,10 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const usersController ={
     detail: function(req, res){
         let userLogged = req.session.userLogged
-        console.log(userLogged)
         res.render('./user/detail', {user: userLogged})
     },
 
     login: function(req, res){
-        console.log(req.cookies.testing)
         res.render('./user/login');
     },
 
@@ -103,7 +101,10 @@ const usersController ={
             cart: []
         }
         User.create(userToCreate)
-		res.render('index', { products })
+		delete userToCreate.password;
+                req.session.userLogged = userToCreate;
+                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 2})
+                res.redirect('/user/detail')
              
     },
 

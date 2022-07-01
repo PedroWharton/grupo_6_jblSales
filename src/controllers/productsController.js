@@ -60,6 +60,8 @@ const productController ={
         let newProduct= req.body;
 		newProduct.id = products[products.length -1].id + 1;
 		newProduct.img = req.file.filename;
+        newProduct.price = parseInt(newProduct.price, 10)
+        newProduct.unidades = parseInt(newProduct.unidades, 10)
 		products.push(newProduct)
 		jsonproducts = JSON.stringify(products)
 		fs.writeFileSync(productsFilePath, jsonproducts)
@@ -84,6 +86,19 @@ const productController ={
         let jsonproducts = JSON.stringify(toEditProducts)
 		fs.writeFileSync(productsFilePath, jsonproducts)
 		res.render('index', { products })
+
+        /**update: (req, res)=>{
+        let producto = productosController.buscarProducto(req.params.id)
+        let actualizacion = req.body;
+        for(let propiedad in actualizacion){
+            if(propiedad != ""){
+                producto[propiedad] = req.body[propiedad];
+            }   
+        }
+        console.log(req.body);
+        productos.push(producto)
+        fs.writeFileSync(listaProductos, JSON.stringify(productos, null, ' '));
+        res.redirect('/product/detail/'+ req.params.id) */
         
     },
     deleteProduct: function(req, res){
