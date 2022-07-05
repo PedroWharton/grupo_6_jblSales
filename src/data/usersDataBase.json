@@ -56,5 +56,14 @@
   "avatar": "Logo.png",
   "cart": [],
   "admin": false
+ },
+ {
+  "id": 10,
+  "username": "andres",
+  "email": "andres@digitalhouse.com",
+  "password": "$2a$10$YQUtQ65pG6efak.3EAvkROLexUsI2eFZo3RjBjmMrzKG60NWuAw5q",
+  "avatar": "Logo.png",
+  "cart": [],
+  "admin": false
  }
 ]

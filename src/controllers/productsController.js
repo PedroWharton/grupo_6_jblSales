@@ -51,7 +51,7 @@ const productController ={
 		products.push(newProduct)
 		jsonproducts = JSON.stringify(products)
 		fs.writeFileSync(productsFilePath, jsonproducts)
-		res.render('index', { products })
+		res.render('index', { products }) 
     },
 
     editProduct: function(req, res){

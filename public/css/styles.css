@@ -548,3 +548,9 @@ main .texto-producto-carrito h4{
 }
 
 
+
+.bottom-header li a {
+
+    border-radius: 5px;
+
+}
