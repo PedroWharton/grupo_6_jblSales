@@ -20,7 +20,6 @@ const usersController ={
     },
 
     login: function(req, res){
-        console.log(req.cookies.testing)
         res.render('./user/login');
     },
 
@@ -57,8 +56,6 @@ const usersController ={
     },
 
     register: function(req, res){
-        
-        res.cookie('testing', "hola mundo", {maxAge: 1000 * 30})
         res.render('./user/register');
     },
 
@@ -68,6 +65,13 @@ const usersController ={
         let mailInDB = User.findByField('email', req.body.email);
         let usernameInDB = User.findByField('username', req.body.username);
 
+        if(resultValidation.errors.length > 0){
+            res.render('./user/register', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+        
         if(mailInDB){
             return res.render('./user/register', {
                 errors: {
@@ -88,21 +92,19 @@ const usersController ={
                 oldData: req.body
             })
         }
-        if(resultValidation.errors.length > 0){
-            res.render('./user/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
-        }
+
         delete req.body.pswRepeat;
         let userToCreate = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password),
-            avatar: 'Logo.png',
+            avatar: req.file.filename,
             cart: []
         }
         User.create(userToCreate)
-		res.render('index', { products })
+		delete userToCreate.password;
+                req.session.userLogged = userToCreate;
+                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 2})
+                res.redirect('/user/detail')
              
     },
 
@@ -110,6 +112,29 @@ const usersController ={
         res.clearCookie('username')
         req.session.destroy();
         res.redirect('/')
+    },
+
+    añadirCarrito: function(req, res){
+        if(!req.session.userLogged){
+            res.redirect('/user/login');
+        }
+
+        let cartProducts = req.session.userLogged.cart;
+        let newCart = [];
+        
+        for(let product of products){
+            for(let i = 0; i < cartProducts.length; i++){
+                if(req.params.id == product.id || product.id == cartProducts[i]){
+                    newCart.push(product)
+                }
+            }
+        }
+        let allUsers = User.findAll()
+        let usertoedit = allUsers.find(oneUser => oneUser.id == req.session.userLogged.id);
+        usertoedit.cart.push(parseInt(req.params.id, 10))
+        fs.writeFileSync(usersFilePath, JSON.stringify(allUsers, null, ' '));
+        
+        res.render('./products/productCart', {products: newCart})
     }
 }
 

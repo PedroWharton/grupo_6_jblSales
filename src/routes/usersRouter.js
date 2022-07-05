@@ -3,7 +3,8 @@ const router = express.Router();
 const usersController = require('../controllers/usersController');
 const registerValidations = require('../middlewares/registerValidation');
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware');
+const uploadFile = require('../middlewares/avatarUploadMiddleware');
 
 
 
@@ -12,10 +13,13 @@ router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', usersController.loginFunction);
 
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/register', registerValidations,  usersController.registerFunction);
+router.post('/register', registerValidations, uploadFile.single('avatar'), usersController.registerFunction);
 
 router.get('/detail', authMiddleware, usersController.detail);
 
 router.get('/logout', usersController.logout);
+
+
+router.post('/:id', usersController.añadirCarrito);
 
 module.exports = router;

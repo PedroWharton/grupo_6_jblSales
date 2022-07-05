@@ -1,23 +1,16 @@
-const express = require('express');
-const router = require('../routes/mainRouter');
 const path = require('path');
 const fs = require('fs');
-const { userInfo } = require('os');
+const Product = require('../models/Product');
+const User = require('../models/User');
+
+const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productController ={
-    buscarProducto: function(id){
-		let productoFinal;
-		let idProducto = id;
-		for (let product of products){
-			if(idProducto == product.id){
-				productoFinal = product;
-			}
-		}
-		return productoFinal
-	},
+    
     productsIndex: function(req, res){
         let category = req.params.category;
         if(category != null){
@@ -31,13 +24,24 @@ const productController ={
     },
 
     productDetail: (req, res) => {
-        let productd = productController.buscarProducto(req.params.id)
-        console.log(this)
-        res.render('./products/productDetail', {product: productd });
+        let product = Product.findByPk(req.params.id)
+        res.render('./products/productDetail', {product: product });
     },
 
     productCart: function(req, res){
-        res.render('./products/productCart', { /*** pasar productos que el usuario tiene al carrito ***/products } );
+        /* user.push(producto a agregar) */
+        let cartProducts = req.session.userLogged.cart;
+        let filteredproducts = [];
+        for(let i = 0; i < products.length; i++){
+            for(let j = 0; j < cartProducts.length; j++){
+                if(products[i].id == cartProducts[j]){
+                    filteredproducts.push(products[i]);
+                }
+            }
+        }
+        
+
+        res.render('./products/productCart', { products: filteredproducts } );
     },
 
     newProduct: function(req, res){
@@ -46,59 +50,48 @@ const productController ={
     
     newProductFunction: function(req, res){
         let newProduct= req.body;
-		newProduct.id = products[products.length -1].id + 1;
 		newProduct.img = req.file.filename;
+<<<<<<< HEAD
 		products.push(newProduct)
 		jsonproducts = JSON.stringify(products)
 		fs.writeFileSync(productsFilePath, jsonproducts)
 		res.render('index', { products }) 
+=======
+        newProduct.price = parseInt(newProduct.price, 10)
+        newProduct.unidades = parseInt(newProduct.unidades, 10)
+		
+        let allProducts = Product.create(newProduct)
+
+		res.redirect('/')
+>>>>>>> fe5e9bbab7c1251f8b2c32a51ec61d5f19d27227
     },
 
     editProduct: function(req, res){
-        res.render('./products/editProduct', { product:  productController.buscarProducto(req.params.id) });
+        res.render('./products/editProduct', { product:  Product.findByPk(req.params.id) });
     },
     editProductFunction: function(req, res){
-        /*** logica editar json */
-        let i = 0;
-        let toEditProducts = products
-        for(let product of toEditProducts){
-            if(req.params.id == product.id){
-                toEditProducts[i] = req.body;
-                toEditProducts[i].id = req.params.id;
-                toEditProducts[i].img = "Logo.png"
-            }
-            i++;
+        /*** logica editar json */       
+        let product = Product.findByPk(req.params.id)
+        for(let propiedad in req.body){
+            console.log(propiedad)
+            if(req.body[propiedad] != ''){
+                console.log('entre')
+                product[propiedad] = req.body[propiedad];
+            }   
         }
-        let jsonproducts = JSON.stringify(toEditProducts)
-		fs.writeFileSync(productsFilePath, jsonproducts)
-		res.render('index', { products })
+
+        Product.update(product);
+
+		res.redirect('/')
+
         
     },
     deleteProduct: function(req, res){
-        let i = 0;
-        for(let product of products){
-            if(req.params.id == product.id){
-                products.splice(i, 1);
-            }
-            i++;
-        }
-        let jsonproducts = JSON.stringify(products, null, ' ')
-		fs.writeFileSync(productsFilePath, jsonproducts)
-		res.render('index', { products })
-    },
-
-    añadirCarrito: function(req, res){
-        /*** Funcionalidad que añada el producto al carrito ***/ 
-        /* asumo que tengo el id de usuario */
-        /* user.push(producto a agregar) */
-        let cartProducts;
-        for(let product of products){
-            if(userInfo.cart.includes(product.id)){
-                cartProducts.push(product)
-            }
-        }
-        res.render('./products/productCart', {product: cartProducts})
+        Product.delete(req.params.id)
+		res.redirect('/')
     }
+
+    
 
 }
 

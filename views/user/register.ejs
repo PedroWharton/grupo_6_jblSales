@@ -5,7 +5,7 @@
     <%- include('../partials/header') %>
     <main>
         <h1 style="text-align:center;">Registrate</h1>
-        <form action="/user/register" method="POST">    
+        <form action="/user/register" method="POST" enctype="multipart/form-data">    
                 <div class="register-form">
                     <div>
                         <label for="username"><b>Nombre de Usuario</b></label><br>
@@ -23,6 +23,15 @@
                                value="<%= locals.oldData ? oldData.email : null %>"><br>
                         <% if(locals.errors && errors.email) { %>
                             <div class="text-danger"><%= errors.email.msg %></div>
+                        <% } %>
+                    </div>
+                    <div>
+                        <label for="avatar"><b>Foto De Perfil</b></label><br>
+                        <input type="file" placeholder="avatar" name="avatar" id="avatar" 
+                               class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : locals.errors ? 'is-valid' : null %>" 
+                               value="<%= locals.oldData ? oldData.avatar : null %>"><br>
+                        <% if(locals.errors && errors.avatar) { %>
+                            <div class="text-danger"><%= errors.avatar.msg %></div>
                         <% } %>
                     </div>
                     <div>
