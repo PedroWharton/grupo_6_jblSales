@@ -120,7 +120,7 @@ const usersController ={
         }
 
         let cartProducts = req.session.userLogged.cart;
-        let newCart= [];
+        let newCart = [];
         
         for(let product of products){
             for(let i = 0; i < cartProducts.length; i++){
@@ -129,6 +129,10 @@ const usersController ={
                 }
             }
         }
+        let allUsers = User.findAll()
+        let usertoedit = allUsers.find(oneUser => oneUser.id == req.session.userLogged.id);
+        usertoedit.cart.push(parseInt(req.params.id, 10))
+        fs.writeFileSync(usersFilePath, JSON.stringify(allUsers, null, ' '));
         
         res.render('./products/productCart', {products: newCart})
     }
