@@ -65,14 +65,15 @@ const productController ={
     editProductFunction: function(req, res){
         /*** logica editar json */       
         let product = Product.findByPk(req.params.id)
-
         for(let propiedad in req.body){
-            if(propiedad !== ''){
+            console.log(propiedad)
+            if(req.body[propiedad] != ''){
+                console.log('entre')
                 product[propiedad] = req.body[propiedad];
             }   
         }
 
-        let allProducts = Product.update(product);
+        Product.update(product);
 
 		res.redirect('/')
 
