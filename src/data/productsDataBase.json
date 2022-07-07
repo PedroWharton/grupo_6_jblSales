@@ -25,5 +25,14 @@
   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
   "caracteristics": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
   "category": "auriculares"
+ },
+ {
+  "id": 4,
+  "name": "Pedro David Wharton",
+  "price": 2,
+  "category": "parlantes",
+  "unidades": 3,
+  "caracteristics": "gvfd",
+  "img": "1657159980417_img_.jpg"
  }
 ]
