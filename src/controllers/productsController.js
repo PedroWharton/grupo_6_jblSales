@@ -3,9 +3,6 @@ const fs = require('fs');
 const Product = require('../models/Product');
 const User = require('../models/User');
 
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -19,8 +16,7 @@ const productController ={
         }
         else{
             res.render('./products/products', { products });
-        }
-        
+        }       
     },
 
     productDetail: (req, res) => {
@@ -39,8 +35,6 @@ const productController ={
                 }
             }
         }
-        
-
         res.render('./products/productCart', { products: filteredproducts } );
     },
 
@@ -49,36 +43,19 @@ const productController ={
     },
     
     newProductFunction: function(req, res){
-        let newProduct= req.body;
-		newProduct.img = req.file.filename;
-        newProduct.price = parseInt(newProduct.price, 10)
-        newProduct.unidades = parseInt(newProduct.unidades, 10)
-		
-        let allProducts = Product.create(newProduct)
-
+        Product.create(req.body, req.file.filename)
 		res.redirect('/')
     },
 
     editProduct: function(req, res){
         res.render('./products/editProduct', { product:  Product.findByPk(req.params.id) });
     },
-    editProductFunction: function(req, res){
-        /*** logica editar json */       
-        let product = Product.findByPk(req.params.id)
-        for(let propiedad in req.body){
-            console.log(propiedad)
-            if(req.body[propiedad] != ''){
-                console.log('entre')
-                product[propiedad] = req.body[propiedad];
-            }   
-        }
 
-        Product.update(product);
-
+    editProductFunction: function(req, res){  
+        Product.update(req.params.id, req.body);
 		res.redirect('/')
-
-        
     },
+
     deleteProduct: function(req, res){
         Product.delete(req.params.id)
 		res.redirect('/')

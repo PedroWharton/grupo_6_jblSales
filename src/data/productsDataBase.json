@@ -9,14 +9,14 @@
   "category": "auriculares"
  },
  {
-    "id": 2,
-    "img": "JBLQuantum100.jpg",
-    "name": "JBL Quantum 100",
-    "price": 999,
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
-    "caracteristics": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
-    "category": "auriculares"
-   },
+  "id": 2,
+  "img": "JBLQuantum100.jpg",
+  "name": "JBL Quantum 100",
+  "price": 999,
+  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
+  "caracteristics": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo reiciendis cum assumenda error obcaecati, dicta atq",
+  "category": "auriculares"
+ },
  {
   "id": 3,
   "img": "JBLQuantum300.jpg",

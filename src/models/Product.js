@@ -39,28 +39,36 @@ const User = {
         return productFound;
     },
 
-    create: function(productData){
+    create: function(productData, filename){
         let allProducts = this.findAll();
         let newProduct = {
             id: this.generateId(),
             ...productData
         }
+        newProduct.img = filename;
+        newProduct.price = parseInt(newProduct.price, 10)
+        newProduct.unidades = parseInt(newProduct.unidades, 10)
         allProducts.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(allProducts, null, ' '));
         return newProduct;
     },
 
-    update: function(editedProduct){
+    update: function(id, body){
         let allProducts = this.findAll();
-        let productFound = allProducts.find(product => product.id == editedProduct.id);
+        let productFound = allProducts.find(product => product.id == id);
+        
         for(let i = 0; i < allProducts.length; i++){
             if( allProducts[i] == productFound){
-                allProducts[i] = editedProduct
+                for(let propiedad in body){
+                    if(body[propiedad] != ''){
+                        allProducts[i][propiedad] = body[propiedad];
+                    }   
+                }
                 break
             }
         }
         fs.writeFileSync(productsFilePath, JSON.stringify(allProducts, null, ' '));
-        return editedProduct;
+        return body;
     },
 
     delete: function(id){
