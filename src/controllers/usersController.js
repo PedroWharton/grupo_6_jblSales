@@ -30,7 +30,7 @@ const usersController ={
             if(passwordCompare){
                 delete userLogged.password;
                 req.session.userLogged = userLogged;
-                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 2})
+                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
                 res.redirect('/user/detail')
             }
             else{
@@ -61,6 +61,7 @@ const usersController ={
 
     registerFunction: function(req, res){
         const resultValidation = validationResult(req);
+
 
         let mailInDB = User.findByField('email', req.body.email);
         let usernameInDB = User.findByField('username', req.body.username);
@@ -103,7 +104,7 @@ const usersController ={
         User.create(userToCreate)
 		delete userToCreate.password;
                 req.session.userLogged = userToCreate;
-                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 2})
+                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
                 res.redirect('/user/detail')
              
     },
@@ -134,7 +135,7 @@ const usersController ={
         usertoedit.cart.push(parseInt(req.params.id, 10))
         fs.writeFileSync(usersFilePath, JSON.stringify(allUsers, null, ' '));
         
-        res.render('./products/productCart', {products: newCart})
+        res.redirect('/products/productCart')
     }
 }
 

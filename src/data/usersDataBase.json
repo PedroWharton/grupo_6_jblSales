@@ -29,6 +29,7 @@
   "email": "pedrowharton@gmail.com",
   "password": "$2a$10$5nd9.p8WHp5srEVv0MpZhu1MacUG936W9pjMPrfEdz5kzFwCJGzXy",
   "avatar": "Logo.png",
+  "cart": [],
   "admin": false
  },
  {
@@ -65,5 +66,32 @@
   "avatar": "Logo.png",
   "cart": [],
   "admin": false
+ },
+ {
+  "id": 11,
+  "username": "tyhbrgvfrcsdeax",
+  "email": "myntbrgtvrs@hotmail.com",
+  "password": "$2a$10$nxb45.JJAQf23e7WC96Yc.wVrY1Ms3DWvK4HG1JYOze1NrFjzIDuG",
+  "avatar": "1657295309880_img_.png",
+  "cart": [],
+  "admin": false
+ },
+ {
+  "id": 12,
+  "username": "htgrf",
+  "email": "rgtvdf@gnrfi.com",
+  "password": "$2a$10$53afajM6BbdiJmNMtVKzC.fv2n7UaITJUdv8XwLqPU8fXJU8Zwnlq",
+  "avatar": "1657380647858_img_.png",
+  "cart": [],
+  "admin": false
+ },
+ {
+  "id": 13,
+  "username": "htgrfgf",
+  "email": "rgtvfdf@gnrfi.com",
+  "password": "$2a$10$p/WjqnilDL/Kof9ahrryneAJNqnEInJrM1kr3g2wva4OaLd468bhm",
+  "avatar": "1657381129424_img_.png",
+  "cart": [],
+  "admin": false
  }
-] 
+]
