@@ -49,6 +49,10 @@
                         <% if(locals.errors && errors.pswRepeat) { %>
                             <div class="text-danger"><%= errors.pswRepeat.msg %></div>
                         <% } %>
+                        <div id="checkbox">
+                            <label for="remember">Recordame</label>
+                            <input type="checkbox" name="remember" class="form-check-label" id="checkbox-input">
+                        </div>
                         <button type="submit" class="register-button">Registrate</button>
                         <p>Ya tenes una cuenta? <a href="/user/login">Login</a></p>
                     </div>

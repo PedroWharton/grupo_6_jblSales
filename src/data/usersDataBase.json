@@ -1,65 +1,15 @@
 [
  {
   "id": 1,
-  "avatar": "Logo.png",
-  "username": "ADMIN",
-  "email": "admin@hotmail.com",
-  "password": "password",
-  "admin": true
- },
- {
-  "id": 2,
-  "avatar": "Logo.png",
-  "username": "Felipe",
-  "email": "Felipemontaña@hotmail.com",
-  "password": "password",
-  "admin": false
- },
- {
-  "id": 3,
-  "avatar": "Logo.png",
-  "username": "PedroWharton",
-  "email": "pedrowharton@hotmail.com",
-  "password": "password",
-  "admin": false
- },
- {
-  "id": 4,
   "username": "pedrowharton",
   "email": "pedrowharton@gmail.com",
   "password": "$2a$10$5nd9.p8WHp5srEVv0MpZhu1MacUG936W9pjMPrfEdz5kzFwCJGzXy",
   "avatar": "Logo.png",
   "cart": [],
-  "admin": false
+  "admin": true
  },
  {
-  "id": 5,
-  "username": "getfinanciallyfreed",
-  "email": "pedrowharon@gmail.com",
-  "password": "$2a$10$yS5ErOpjpH5x.TshinBb9OUs713SaGEcb.xdzmRdpBUoQr1rwYNwe",
-  "avatar": "Logo.png",
-  "admin": false
- },
- {
-  "id": 7,
-  "username": "wharton_stephen@yahoo.com.ar",
-  "email": "wharton_stephen@yahoo.com.ar",
-  "password": "$2a$10$UzfWp36euw5K1tNMeUGsGeKiuOpyXdudmD7IHb9sm/B6o7zlWa5VG",
-  "avatar": "Logo.png",
-  "cart": [],
-  "admin": false
- },
- {
-  "id": 9,
-  "username": "getfinanciallyfreedh",
-  "email": "pdrowharton@gmail.com",
-  "password": "$2a$10$xEhnKgIhDJZWSo2A0wOkZuCHXXE8zQ4CGigfLJHUBU/ETCmllCb4.",
-  "avatar": "Logo.png",
-  "cart": [],
-  "admin": false
- },
- {
-  "id": 10,
+  "id": 2,
   "username": "andres",
   "email": "andres@digitalhouse.com",
   "password": "$2a$10$YQUtQ65pG6efak.3EAvkROLexUsI2eFZo3RjBjmMrzKG60NWuAw5q",
@@ -68,29 +18,11 @@
   "admin": false
  },
  {
-  "id": 11,
-  "username": "tyhbrgvfrcsdeax",
-  "email": "myntbrgtvrs@hotmail.com",
-  "password": "$2a$10$nxb45.JJAQf23e7WC96Yc.wVrY1Ms3DWvK4HG1JYOze1NrFjzIDuG",
-  "avatar": "1657295309880_img_.png",
-  "cart": [],
-  "admin": false
- },
- {
-  "id": 12,
-  "username": "htgrf",
-  "email": "rgtvdf@gnrfi.com",
-  "password": "$2a$10$53afajM6BbdiJmNMtVKzC.fv2n7UaITJUdv8XwLqPU8fXJU8Zwnlq",
-  "avatar": "1657380647858_img_.png",
-  "cart": [],
-  "admin": false
- },
- {
-  "id": 13,
-  "username": "htgrfgf",
-  "email": "rgtvfdf@gnrfi.com",
-  "password": "$2a$10$p/WjqnilDL/Kof9ahrryneAJNqnEInJrM1kr3g2wva4OaLd468bhm",
-  "avatar": "1657381129424_img_.png",
+  "id": 3,
+  "username": "bgvfd",
+  "email": "bgfdv",
+  "password": "$2a$10$9BJrdfURfA.xIOaRnNaaD.LjwX52cAQnlBK.s3mPNxODdHLfvhM8W",
+  "avatar": "1657657275570_img_.png",
   "cart": [],
   "admin": false
  }

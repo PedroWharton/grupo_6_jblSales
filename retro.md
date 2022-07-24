@@ -48,3 +48,20 @@
 
 ## Dejar de hacer
 #### Por el momento no tenemos que aportar a este item.
+
+# Retrospectiva 4 (mantenemos mismo que arriba por que el sprint 6 se termino con el sprint 5 y por ende tienen la misma retro)
+
+## Comenzar a hacer
+#### Por el momento no tenemos que aportar a este item.
+
+## Hacer mas
+#### Reunirnos mas seguido para mantenerlos al tanto de que esta haciendo cada uno 
+
+## Continuar haciendo
+#### Utilizar trello para tener un control de las actividades que estan realizando los miembros del equipo en tiempo real, utilizacion de metodologias agiles para crear un ambiente de trabajo mas dinamico,ademas de discutir ciertas variables en el proyecto para avanzar mas armonicamente.
+
+## Hacer menos
+#### Por el momento no tenemos que aportar a este item.
+
+## Dejar de hacer
+#### Por el momento no tenemos que aportar a este item.

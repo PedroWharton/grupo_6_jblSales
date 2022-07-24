@@ -274,6 +274,17 @@ main .descripcion-producto2{
 .register-form a{
     text-decoration: none;
 }
+#checkbox{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#checkbox-input{
+    width: auto;
+}
+
+
 main .producto-carrito{
     display: flex;
     flex-wrap: wrap;

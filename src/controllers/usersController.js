@@ -25,12 +25,16 @@ const usersController ={
 
     loginFunction: function(req, res){
         let userLogged = User.findByField('username', req.body.username);
+        
+        console.log(req.body)
         if (userLogged){
             let passwordCompare = bcrypt.compareSync(req.body.password, userLogged.password)
             if(passwordCompare){
                 delete userLogged.password;
                 req.session.userLogged = userLogged;
-                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
+                if(req.body.remember){
+                    res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
+                }
                 res.redirect('/user/detail')
             }
             else{
