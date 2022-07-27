@@ -1,41 +1,34 @@
 const path = require('path');
 const fs = require('fs');
-const Product = require('../models/Product');
-const User = require('../models/User');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../../database/models')
 
 const productController ={
     
     productsIndex: function(req, res){
         let category = req.params.category;
         if(category != null){
-            filteredproducts = products.filter(product => product.category == category);
-            res.render('./products/products', { products: filteredproducts });
+            db.Product.findAll({where: {category : req.params.category}}).then(function(products){
+                res.render('./products/products', { products });
+            })
         }
         else{
-            res.render('./products/products', { products });
+            db.Product.findAll().then(function(products){
+                res.render('./products/products', { products });
+            })
         }       
     },
 
     productDetail: (req, res) => {
-        let product = Product.findByPk(req.params.id)
-        res.render('./products/productDetail', {product: product });
+        db.Product.findByPk(req.params.id).then(function(product){
+            res.render('./products/productDetail', { product });
+        })      
     },
 
     productCart: function(req, res){
-        /* user.push(producto a agregar) */
-        let cartProducts = req.session.userLogged.cart;
-        let filteredproducts = [];
-        for(let i = 0; i < products.length; i++){
-            for(let j = 0; j < cartProducts.length; j++){
-                if(products[i].id == cartProducts[j]){
-                    filteredproducts.push(products[i]);
-                }
-            }
-        }
-        res.render('./products/productCart', { products: filteredproducts } );
+        db.Product.findAll({where: {user_id: req.session.userlogged}}).then(function(products){
+            res.render('./products/productCart', { products } );
+        })
+        
     },
 
     newProduct: function(req, res){
@@ -43,26 +36,41 @@ const productController ={
     },
     
     newProductFunction: function(req, res){
-        Product.create(req.body, req.file.filename)
-		res.redirect('/')
+        db.Product.create({
+            ...req.body,
+            img: req.file.filename
+        }).then(function(){
+            res.redirect('/')
+        })
     },
 
     editProduct: function(req, res){
-        res.render('./products/editProduct', { product:  Product.findByPk(req.params.id) });
+        db.Product.findByPk(req.params.id).then(function(product){
+            res.render('./products/editProduct', { product });
+        })
     },
 
-    editProductFunction: function(req, res){  
-        Product.update(req.params.id, req.body);
+    editProductFunction: function(req, res){
+        let product = {
+            ...req.body
+        }
+        parseInt(product.price)
+        for(data in product){
+            if(product[data] == ''){
+                delete product[data]
+            }
+        }
+        
+        console.log(product)
+        db.Product.update(product, {where: {product_id: req.params.id}});
 		res.redirect('/')
     },
 
     deleteProduct: function(req, res){
-        Product.delete(req.params.id)
-		res.redirect('/')
+        db.Product.destroy({where: {product_id: req.params.id}}).then(function(){
+            res.redirect('/')
+        })
     }
-
-    
-
 }
 
 module.exports = productController;

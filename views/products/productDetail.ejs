@@ -6,7 +6,7 @@
     <main>
         <a href="/">&lt; Volver a la pagina anterior</a>
         <article class="main-product-detail">
-            <form action="/user/<%= product.id %>" method="POST">
+            <form action="/user/<%= product.product_id %>" method="POST">
                 <div class="main-product-detail-div">
                     <img src="/images/<%= product.img %>" alt="" class="img-product-detail">
                 <div class="desktop-description-div">
@@ -41,7 +41,7 @@
 
             </div>
             <div class="register-button">
-                <form action="/products/editProduct/<%= product.id %>" method="get">
+                <form action="/products/editProduct/<%= product.product_id %>" method="get">
                     <button type="submit" class="comprar-ahora">Editar Producto</button>
                 </form>
                 <form action="/products/newProduct" method="get">

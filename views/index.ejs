@@ -11,7 +11,7 @@
         <h2 class="promociones">Promociones</h2>
         <div class="rueda-productos">
             <% for(product of products) { %>
-                <article class="producto"><a href="/products/productDetail/<%= product.id %>">
+                <article class="producto"><a href="/products/productDetail/<%= product.product_id %>">
                     <img src="/images/<%= product.img %>" alt="">
                     <p class="precio">$<%= product.price %></p>
                     <h4 class="titulo-producto-promociones"><%= product.name %></h4>
