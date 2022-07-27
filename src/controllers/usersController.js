@@ -13,6 +13,8 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
+const db = require('../../database/models')
+
 const usersController ={
     detail: function(req, res){
         let userLogged = req.session.userLogged
@@ -67,8 +69,31 @@ const usersController ={
         const resultValidation = validationResult(req);
 
 
-        let mailInDB = User.findByField('email', req.body.email);
-        let usernameInDB = User.findByField('username', req.body.username);
+        db.User.findOne({raw: true},{where: {email: req.body.email}}).then(function(mailInDB){
+            if(mailInDB){
+                return res.render('./user/register', {
+                    errors: {
+                        email:{
+                            msg: "Este mail ya esta en uso"
+                        }
+                    },
+                    oldData: req.body
+                })
+            }
+        })
+        
+        db.User.findOne({where: {username: req.body.username}}).then(function(usernameInDB){
+            if(usernameInDB){
+                return res.render('./user/register', {
+                    errors: {
+                        username:{
+                            msg: "Este nombre de usuario ya esta en uso"
+                        }
+                    },
+                    oldData: req.body
+                })
+            }
+        })
 
         if(resultValidation.errors.length > 0){
             res.render('./user/register', {
@@ -76,40 +101,23 @@ const usersController ={
                 oldData: req.body
             })
         }
-        
-        if(mailInDB){
-            return res.render('./user/register', {
-                errors: {
-                    email:{
-                        msg: "Este mail ya esta en uso"
-                    }
-                },
-                oldData: req.body
-            })
-        }
-        if(usernameInDB){
-            return res.render('./user/register', {
-                errors: {
-                    username:{
-                        msg: "Este nombre de usuario ya esta en uso"
-                    }
-                },
-                oldData: req.body
-            })
-        }
 
-        delete req.body.pswRepeat;
-        let userToCreate = {
-            ...req.body,
-            password: bcrypt.hashSync(req.body.password),
+        db.User.create({
+            username: req.body.username,
+            email: req.body.email,
             avatar: req.file.filename,
-            cart: []
-        }
-        User.create(userToCreate)
-		delete userToCreate.password;
-                req.session.userLogged = userToCreate;
-                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
-                res.redirect('/user/detail')
+            password: bcrypt.hashSync(req.body.password)
+        }).then(function(){
+            delete req.body.pswRepeat;
+            let userToCreate = {
+                ...req.body,
+                avatar: req.file.filename
+            }
+            req.session.userLogged = userToCreate;
+            res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
+            res.redirect('/user/detail')
+        })
+                
              
     },
 

@@ -1,37 +1,44 @@
-const { DataTypes } = require("sequelize/types");
-
-module.exports = (sequelize, DataTypes) => {
-    let alias = "Users";
+let Product = require('./Product')
+module.exports = (sequelize, dataTypes) => {
+    let alias = "User";
     let cols = {
-        id: {
-            type: DataTypes.INTEGER,
+        user_id: {
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         username: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         email: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         password: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         avatar: {
-            type: DataTypes.STRING
-        },
-        cart: {
-            type: DataTypes.INTEGER
+            type: dataTypes.STRING
         },
         admin: {
-            type: DataTypes.BOOLEAN
+            type: dataTypes.BOOLEAN
         }
     }
     let config = {
+        tableName: "users",
         timestamps: false
     }
     
     const User = sequelize.define(alias, cols, config);
+
+    /*User.associate = function(models){
+        User.belongsToMany(models.Products, {
+            as: "products",
+            through: "users_products",
+            foreingKey: "user_id",
+            otherKey: "product_id",
+            timestamps: false
+        })
+    }*/
 
     return User;
 }
