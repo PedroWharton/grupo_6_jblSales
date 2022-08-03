@@ -25,8 +25,8 @@ const productController ={
     },
 
     productCart: function(req, res){
-        db.Product.findAll({where: {user_id: req.session.userlogged}}).then(function(products){
-            res.render('./products/productCart', { products } );
+        db.Product.findAll({include: [{association: "users"}]}).then(function(rawproducts){
+            console.log(rawproducts)
         })
         
     },

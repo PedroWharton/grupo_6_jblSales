@@ -17,9 +17,11 @@ const usersController ={
     },
 
     loginFunction: function(req, res){
-        db.User.findOne({raw: true},{where: {username: req.body.username}}).then(function(userLogged){
+        db.User.findOne({where: {username: req.body.username}}).then(function(userLogged){
+            console.log(userLogged.dataValues.user_id);
             if (userLogged){
-                let passwordCompare = bcrypt.compareSync(req.body.password, userLogged.password)
+                let passwordCompare = bcrypt.compareSync(req.body.password, userLogged.dataValues.password)
+                console.log(userLogged.dataValues.password);
                 if(passwordCompare){
                     delete userLogged.password;
                     req.session.userLogged = userLogged;
@@ -55,7 +57,7 @@ const usersController ={
     registerFunction: function(req, res){
         const resultValidation = validationResult(req);
 
-        db.User.findOne({raw: true},{where: {email: req.body.email}}).then(function(mailInDB){
+        db.User.findOne({where: {email: req.body.email}}).then(function(mailInDB){
             if(mailInDB){
                 return res.render('./user/register', {
                     errors: {
@@ -66,49 +68,57 @@ const usersController ={
                     oldData: req.body
                 })
             }
+            else{
+                db.User.findOne({where: {username: req.body.username}}).then(function(usernameInDB){
+                    if(usernameInDB){
+                        return res.render('./user/register', {
+                            errors: {
+                                username:{
+                                    msg: "Este nombre de usuario ya esta en uso"
+                                }
+                            },
+                            oldData: req.body
+                        })
+                    }
+                    else {
+                        if(resultValidation.errors.length > 0){
+                            res.render('./user/register', {
+                                errors: resultValidation.mapped(),
+                                oldData: req.body
+                            })
+                        }
+                
+                        db.User.create({
+                            username: req.body.username,
+                            email: req.body.email,
+                            avatar: req.file.filename,
+                            password: bcrypt.hashSync(req.body.password, 10)
+                        }).then(function(){
+                            delete req.body.pswRepeat;
+                            req.session.userLogged = {
+                                ...req.body,
+                                avatar: req.file.filename
+                            }
+                            res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
+                            res.redirect('/user/detail')
+                        })
+                    }
+                })
+
+                
+            }
         })
         
-        db.User.findOne({where: {username: req.body.username}}).then(function(usernameInDB){
-            if(usernameInDB){
-                return res.render('./user/register', {
-                    errors: {
-                        username:{
-                            msg: "Este nombre de usuario ya esta en uso"
-                        }
-                    },
-                    oldData: req.body
-                })
-            }
-        })
+        
 
-        if(resultValidation.errors.length > 0){
-            res.render('./user/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
-        }
-
-        db.User.create({
-            username: req.body.username,
-            email: req.body.email,
-            avatar: req.file.filename,
-            password: bcrypt.hashSync(req.body.password)
-        }).then(function(){
-            delete req.body.pswRepeat;
-            req.session.userLogged = {
-                ...req.body,
-                avatar: req.file.filename
-            }
-            res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
-            res.redirect('/user/detail')
-        })
+        
                 
              
     },
 
     logout: function(req, res){
+        req.session.destroy()
         res.clearCookie('username')
-        req.session.destroy();
         res.redirect('/')
     },
 
@@ -116,8 +126,13 @@ const usersController ={
         if(!req.session.userLogged){
             res.redirect('/user/login');
         }
-        /* a rehacer con db*/
-        res.redirect('/products/productCart')
+        db.UserProducts.create({
+            user_id: req.session.userLogged.user_id,
+            product_id: req.params.id
+        }).then(function(){
+            res.redirect('/products/productCart')
+        })
+        
     }
 }
 
