@@ -22,8 +22,8 @@ module.exports = (sequelize, dataTypes) => {
         caracteristics: {
             type: dataTypes.STRING
         },
-        category: {
-            type: dataTypes.STRING
+        category_id: {
+            type: dataTypes.INTEGER
         }
     }
     let config = {
@@ -37,11 +37,14 @@ module.exports = (sequelize, dataTypes) => {
         Product.belongsToMany(models.User, {
             as: "users",
             through: "users_products",
-            foreingKey: "product_id",
+            foreignKey: "product_id",
             otherKey: "user_id",
             timestamps: false
         }),
-        Product.hasMany(models.UserProducts)
+        Product.belongsTo(models.Category, {
+            as: 'category',
+            foreignKey: 'category_id'
+        })
     }
 
     return Product;

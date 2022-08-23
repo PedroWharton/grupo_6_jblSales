@@ -5,7 +5,12 @@ const { Op } = require('sequelize');
 
 const mainController ={
     index: function(req, res){
-        db.Product.findAll().then(function(products){
+        db.Product.findAll({
+            include: [
+                {
+                    association: "category"
+                },
+              ]}).then(function(products){
             res.render('index', { products });
         })
         

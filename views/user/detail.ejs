@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
     <main>
         <div class="profile-container">
-            <img src="/images/avatars/<%= user.avatar %>" alt="">
+            <!-- <img src="/images/avatars/<%= user.avatar %>" alt=""> -->
+            <img src="/images/Logo.png" alt="">
             <h4><%= user.username %></h4>
-            <a href="/user/logout">Logout</a>
+            <h4><%= user.email %></h4>
+            <form action="/user/edit" method="GET">
+                <button type="submit" class="register-button comprar-ahora">Editar</button>
+            </form>
+            <form action="/user/logout" method="POST">
+                <button type="submit" class="register-button comprar-ahora">Logout</button>
+            </form>
         </div>
     </main>
     <%- include('../partials/footer') %>

@@ -34,11 +34,10 @@ module.exports = (sequelize, dataTypes) => {
         User.belongsToMany(models.Product, {
             as: "products",
             through: "users_products",
-            foreingKey: "user_id",
+            foreignKey: "user_id",
             otherKey: "product_id",
             timestamps: false
-        }),
-        User.hasMany(models.UserProducts)
+        })
     }
 
     return User;

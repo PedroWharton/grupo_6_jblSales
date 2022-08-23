@@ -19,6 +19,9 @@ router.get('/detail', authMiddleware, usersController.detail);
 
 router.get('/logout', usersController.logout);
 
+router.get('/edit', authMiddleware, usersController.edit)
+//router.post('/edit', usersController.editFunction)
+
 
 router.post('/:id', usersController.añadirCarrito);
 

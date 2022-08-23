@@ -119,7 +119,7 @@ const usersController ={
     logout: function(req, res){
         req.session.destroy()
         res.clearCookie('username')
-        res.redirect('/')
+        
     },
 
     añadirCarrito: function(req, res){
@@ -133,6 +133,9 @@ const usersController ={
             res.redirect('/products/productCart')
         })
         
+    },
+    edit: function(req, res){
+        res.render('/user/edit', {user: req.session.userLogged})
     }
 }
 

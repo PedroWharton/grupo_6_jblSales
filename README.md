@@ -8,10 +8,10 @@
 ##### Apuntamos a un publico amante de la tecnologia y del buen sonido. Por un lado un publico que disfrute estar al aire libre y siempre bien acompañado por el buen sonido. Por otro tambien tenemos un publico que disfrute los videojuegos y sacarle todo el juego a linea Quantum.
 
 ## Quienes integran JBL Sales
-#### **Pedro Wharton**: Encargado de crear un repositorio en Github y del Wireframe web.
-#### **Felipe Montaña**: Encargado del Logo y tipografiía.
-#### **Andres Hernández**: Encargado del Wireframe de nuestra pagina web.
-#### **Augusto Gibert**: Encargado de redactar el Readme.
+#### **Pedro Wharton**: 
+#### **Felipe Montaña**: 
+#### **Andres Hernández**: 
+#### **Augusto Gibert**: 
 
 ##### Sitios web de referencia:
 ###### **https://www.deertech.com.ar/**
