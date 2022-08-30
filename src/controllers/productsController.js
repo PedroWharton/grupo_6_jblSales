@@ -28,20 +28,14 @@ const productController ={
         db.Product.findAll({
             include: [
                 {
-                    association: "users"
-                },
-              ]})
-        .then(function(rawproducts){
-            let products = []
-            for (product of rawproducts){
-                if(product.users){
-                    for(user of product.users){
-                        if(user.user_id == req.session.userLogged.user_id){
-                            products.push(product)
-                        }
-                    }
+                    association: "users",
+                    where: {user_id: req.session.userLogged.user_id}
                 }
-            }
+
+              ],
+              raw: true
+            })
+        .then(function(products){
             res.render('./products/productCart', {products});
         })
         
@@ -61,7 +55,11 @@ const productController ={
     },
 
     editProduct: function(req, res){
-        db.Product.findByPk(req.params.id).then(function(product){
+        db.Product.findByPk(req.params.id, {
+            include: [
+                {association: 'category'}
+            ]
+        }).then(function(product){
             res.render('./products/editProduct', { product });
         })
     },
@@ -84,22 +82,6 @@ const productController ={
         db.Product.destroy({where: {product_id: req.params.id}}).then(function(){
             res.redirect('/')
         })
-    },
-    //CRUD categorias a traves de APIS
-    createCategory: function(req,res){
-        db.category.create({name: req.params.category}).then(function(category){
-            res.json(category)
-        })  
-    },
-    updateCategory: function(req,res){
-        db.category.update(req.body.name, {where: {name: req.params.category}}).then(function(category){
-            res.json(category)
-        })  
-    },
-    destroyCategory: function(req,res){
-        db.category.destroy({where: {name: req.params.category}}).then(function(category){
-            res.json(category)
-        })  
     }
 }
 

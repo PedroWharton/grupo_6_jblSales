@@ -18,10 +18,8 @@ const usersController ={
 
     loginFunction: function(req, res){
         db.User.findOne({where: {username: req.body.username}}).then(function(userLogged){
-            console.log(userLogged.dataValues.user_id);
             if (userLogged){
                 let passwordCompare = bcrypt.compareSync(req.body.password, userLogged.dataValues.password)
-                console.log(userLogged.dataValues.password);
                 if(passwordCompare){
                     delete userLogged.password;
                     req.session.userLogged = userLogged;
@@ -35,13 +33,6 @@ const usersController ={
                         errors: {
                             username: {
                                 msg: "Las credenciales son invalidas"
-                            }
-                        }
-                    })
-                    res.render('./user/login', {
-                        errors: {
-                            username: {
-                                msg: "No se encuentra este usuario registrado"
                             }
                         }
                     })
@@ -116,13 +107,13 @@ const usersController ={
              
     },
 
-    logout: function(req, res){
+    logout:  function(req, res){
         req.session.destroy()
         res.clearCookie('username')
-        
     },
 
     añadirCarrito: function(req, res){
+        console.log('entre');
         if(!req.session.userLogged){
             res.redirect('/user/login');
         }
@@ -135,7 +126,50 @@ const usersController ={
         
     },
     edit: function(req, res){
-        res.render('/user/edit', {user: req.session.userLogged})
+        res.render('./user/edit', {user: req.session.userLogged})
+    },
+
+    editFunction: function(req, res){
+        if(req.body.password){
+            req.body.password = bcrypt.hashSync(req.body.password, 10);
+        }
+        db.User.update(req.body, {where: {user_id: req.params.id}})
+        .then(function(ok){
+            if(ok){
+                db.User.findOne({ where: {user_id: req.params.id} })
+                .then(function(user){
+                    res.render('./user/detail', {user})
+                })
+            }
+        })
+        
+    },
+
+    deleteFromCart: function(req, res){
+        db.UserProducts.destroy({where: {
+            user_id: req.session.userLogged.user_id,
+            product_id: req.params.id
+        }}).then(confirm => {
+            let respuesta;
+            if(confirm){
+                respuesta ={
+                    meta: {
+                        status: 200,
+                        total: confirm.length
+                    },
+                    data:confirm
+                }
+            }else{
+                respuesta ={
+                    meta: {
+                        status: 200,
+                        total: confirm.length
+                    },
+                    data:confirm
+                }
+            }
+        })    
+        .catch(error => res.send(error))
     }
 }
 

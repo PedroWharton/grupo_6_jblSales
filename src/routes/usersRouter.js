@@ -20,9 +20,11 @@ router.get('/detail', authMiddleware, usersController.detail);
 router.get('/logout', usersController.logout);
 
 router.get('/edit', authMiddleware, usersController.edit)
-//router.post('/edit', usersController.editFunction)
+router.put('/edit/:id', registerValidations, usersController.editFunction)
+
+router.delete('/deleteFromCart/:id', usersController.deleteFromCart)
 
 
-router.post('/:id', usersController.añadirCarrito);
+router.post('/add/:id', usersController.añadirCarrito);
 
 module.exports = router;

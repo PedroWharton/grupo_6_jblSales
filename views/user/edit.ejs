@@ -2,49 +2,53 @@
 <html lang="en">
 <%- include('../partials/head') %>
 
-    <body>
-        <%- include('../partials/header') %>
-            <main>
-                    <form action="/edit/<%= user.user_id %>?_method=PUT" method="POST">
-                        <div class="main-product-detail-div">
-                            <div class="newProduct">
-                                <h1>EDITAR PRODUCTO</h1>
-                                <br>
-                                <label for="username" class="newProduct"><b>Nombre de Usuario: <%= user.username %></b></label>
-                                <br>
-                                <input type="text" name="username" id="username" class="newProduct">
-                                <br>
-                                <img src='/images/avatar/<%= user.avatar %>' class="img-product-detail"/>
-                                <input type="file" name="img" id="img" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
-                                <br>
-                                <label for="price" class="newProduct"><b>Email: <%= user.email %></b></label>
-                                <br>
-                                <input type="text" name="email" id="email" class="newProduct">
-                                <br>
-                                <label for="password" class="newProduct"><b>Contraseña</b></label>
-                                <br>
-                                <input type="password" name="password" id="password" class="newProduct">
-                                <label for="psw-repeat" class="newProduct"><b>RepitaContraseña</b></label>
-                                <br>
-                                <input type="password" name="psw-repeat" id="psw-repeat" class="newProduct">
-                                <br>
-                                <div class="">
-                                    <button type="submit" class="comprar-ahora">Actualizar producto</button>
-                                    <button type="reset" class="comprar-ahora">Borrar cambios</button>
-                                </div>
-                            </div>
-                        </div>
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div class="main-product-detail-div">
+                <div class="newProduct">
+                    <h1>EDITAR USUARIO</h1>
+                    <br>
+                    <form action="/user/edit/<%= user.user_id %>?_method=PUT" method="POST">
+                        <label for="username" class="newProduct"><b>Nombre de Usuario: <%= user.username %></b></label>
+                    <br>
+                    <input type="text" name="username" id="username" class="newProduct">
+                    <br>
+                    <div class="">
+                        <button type="submit" class="comprar-ahora">Actualizar</button>
+                        <button type="reset" class="comprar-ahora">Borrar cambios</button>
+                    </div>
                     </form>
-                    <div class="main-product-detail-div">
-                        <div class="newProduct">
-                            <form action="/products/<%= product.product_id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="comprar-ahora" style="color: red">Borrar</button>
-                            </form>
-                        </div>
-                    </div>        
-                </article>
-            </main>
-            <%- include('../partials/footer') %>
-    </body>
+                    <form action="/user/edit/<%= user.user_id %>?_method=PUT" method="POST">
+                        <label for="price" class="newProduct"><b>Email: <%= user.email %></b></label>
+                    <br>
+                    <input type="text" name="email" id="email" class="newProduct">
+                    <br>
+                    <div class="">
+                        <button type="submit" class="comprar-ahora">Actualizar</button>
+                        <button type="reset" class="comprar-ahora">Borrar cambios</button>
+                    </div>
+                    </form>
+                    
+                    <form action="/user/edit/<%= user.user_id %>?_method=PUT" method="POST">
+                    <label for="password" class="newProduct"><b>Contraseña</b></label>
+                    <br>
+                    <input type="password" name="password" id="password" class="newProduct">
+                    
+                    <label for="psw-repeat" class="newProduct"><b>Repita Contraseña</b></label>
+                    <br>
+                    <input type="password" name="psw-repeat" id="psw-repeat" class="newProduct">
+                    <br>
+                    <div class="">
+                        <button type="submit" class="comprar-ahora">Actualizar</button>
+                        <button type="reset" class="comprar-ahora">Borrar cambios</button>
+                    </div>
+                    </form>
+                </div>
+            </div>     
+    </article>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
 
 </html>
