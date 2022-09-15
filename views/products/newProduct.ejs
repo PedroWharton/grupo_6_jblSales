@@ -5,29 +5,30 @@
     <body>
         <%- include('../partials/header') %>
             <main>
-                <a href="/">&lt; Volver a la pagina anterior</a>
+                <a href="/">&lt; Inicio</a>
                 <article class="main-product-detail">
-                    <form action="/products/newProduct" method="POST" enctype="multipart/form-data">
+                    <form action="/products/newProduct" method="POST" enctype="multipart/form-data" id="form">
                         <div class="main-product-detail-div">
                             
                             <div class="newProduct">
                                 <h2>NUEVO PRODUCTO</h2>
+                                <ul class="errors"></ul>
                                 <br>
                                 <label for="name" class="newProduct"><b>Tilulo del producto:</b> </label>
                                 <br>
-                                <input type="text" name="name" class="newProduct"  required>
+                                <input type="text" name="name" class="newProduct" id="name">
                                 <br>
                                 <label for="titulo" class="newProduct" id="imagen-newProduct"><b>Inserte Imagen</b></label>
-                                <input type="file" name="img" class="newProduct" accept="image/jpg, image/jpeg, image/png, image/webp, image/JPG, image/JPEG, image/PNG, image/WEBP" multiple="" autocomplete="off">
+                                <input type="file" name="img" class="newProduct" id="img" autocomplete="off">
                                 <br>
                                 <label for="descripcion" class="newProduct"><b>Precio </b> </label>
                                 <br>
-                                <input type="number" name="price" class="newProduct" required>
+                                <input type="number" name="price" class="newProduct" id="price">
                                 <br>
                                 <label for="precio" class="newProduct"><b>Categoria</b></label>
                                 <br>
                                 <div class="newProduct">
-                                    <select name="category_id" id="">
+                                    <select name="category_id" id="category">
                                         <option value="1">AURICULARES</option>
                                         <option value="2">PARLANTES</option>
                                         <option value="3">GAMING</option>
@@ -37,15 +38,16 @@
                                 </div>
             
                                 <br>
-                                <label for="unidades" class="newProduct"><b>Unidades disponibles: </b> </label>
-                                <br>                                    
-                                <input type="number" name="unidades" class="newProduct" required>
-                                <br>
-                                <label for="caracteristicas" class="newProduct"><b> Caracteriticas del
+                                <label for="caracteristics" class="newProduct"><b> Caracteriticas del
                                     producto </b> </label>
                                 <br>
-                                    <textarea id="caracteristicas" name="caracteristics" class="descripcion-producto2" required></textarea>
+                                    <textarea id="caracteristics" name="caracteristics" class="descripcion-producto2"></textarea>
                 
+                                    <label for="description" class="newProduct"><b> Caracteriticas del
+                                        producto </b> </label>
+                                    <br>
+                                        <textarea id="description" name="description" class="descripcion-producto2"></textarea>
+                    
                                 <div class="">
                                     <button type="submit" class="comprar-ahora"><b>Agregar producto </b> </button>
                                     <button type="reset" class="comprar-ahora"><b> Borrar todo</b> </button>
@@ -57,5 +59,6 @@
             </main>
             <%- include('../partials/footer') %>
     </body>
+    <script src="/js/productFrontValidations.js"></script>
 
 </html>

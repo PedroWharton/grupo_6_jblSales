@@ -38,7 +38,20 @@ const usersController ={
                     })
                 }
             }
+            else{
+                res.render('./user/login', {
+                    errors: {
+                        username: {
+                            msg: "Las credenciales son invalidas"
+                        }
+                    }
+                })
+            }
         })
+        .catch(function(error){
+            res.send(error)
+        }
+        )
     },
 
     register: function(req, res){
@@ -47,6 +60,23 @@ const usersController ={
 
     registerFunction: function(req, res){
         const resultValidation = validationResult(req);
+
+        function isImage(filename) {
+
+            let extension = (path.extname(filename)).toLowerCase();
+            switch (extension) {
+                case '.jpg':
+                    return true
+                case '.jpeg':
+                    return true
+                case  '.png':
+                    return true
+                case  '.gif':
+                    return true    
+                default:
+                    return false;
+            }
+        }
 
         db.User.findOne({where: {email: req.body.email}}).then(function(mailInDB){
             if(mailInDB){
@@ -78,21 +108,33 @@ const usersController ={
                                 oldData: req.body
                             })
                         }
+                        else if (!isImage(req.file.filename)){
+                            return res.render('./user/register', {
+                                errors: {
+                                    avatar:{
+                                        msg: "Ingrese una imagen en formato valido"
+                                    }
+                                },
+                                oldData: req.body
+                            })
+                        }
+                        else{
+                            db.User.create({
+                                username: req.body.username,
+                                email: req.body.email,
+                                avatar: req.file.filename,
+                                password: bcrypt.hashSync(req.body.password, 10)
+                            }).then(function(){
+                                delete req.body.pswRepeat;
+                                req.session.userLogged = {
+                                    ...req.body,
+                                    avatar: req.file.filename
+                                }
+                                res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
+                                res.redirect('/user/detail')
+                            })
+                        }
                 
-                        db.User.create({
-                            username: req.body.username,
-                            email: req.body.email,
-                            avatar: req.file.filename,
-                            password: bcrypt.hashSync(req.body.password, 10)
-                        }).then(function(){
-                            delete req.body.pswRepeat;
-                            req.session.userLogged = {
-                                ...req.body,
-                                avatar: req.file.filename
-                            }
-                            res.cookie('username', req.body.username, {maxAge: (1000 * 60) * 15})
-                            res.redirect('/user/detail')
-                        })
                     }
                 })
 
@@ -110,6 +152,7 @@ const usersController ={
     logout:  function(req, res){
         req.session.destroy()
         res.clearCookie('username')
+        res.redirect('/')
     },
 
     añadirCarrito: function(req, res){

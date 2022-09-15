@@ -5,8 +5,9 @@
     <%- include('../partials/header') %>
     <main>
         <h1 style="text-align:center;">Registrate</h1>
-        <form action="/user/register" method="POST" enctype="multipart/form-data">    
+        <form action="/user/register" method="POST" enctype="multipart/form-data" id="form">    
                 <div class="register-form">
+                    <ul class="errors"></ul>
                     <div>
                         <label for="username"><b>Nombre de Usuario</b></label><br>
                         <input type="text" placeholder="Nombre de Usuario" name="username" id="username"
@@ -62,5 +63,6 @@
         </form>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/registerValidationFront.js"></script>
 </body>
 </html>    

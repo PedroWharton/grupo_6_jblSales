@@ -46,12 +46,41 @@ const productController ={
     },
     
     newProductFunction: function(req, res){
-        db.Product.create({
-            ...req.body,
-            img: req.file.filename
-        }).then(function(){
-            res.redirect('/')
-        })
+        function isImage(filename) {
+
+            let extension = (path.extname(filename)).toLowerCase();
+            switch (extension) {
+                case '.jpg':
+                    return true
+                case '.jpeg':
+                    return true
+                case  '.png':
+                    return true
+                case  '.gif':
+                    return true    
+                default:
+                    return false;
+            }
+        }
+        if(isImage(req.file.filename)){
+            db.Product.create({
+                ...req.body,
+                img: req.file.filename
+            }).then(function(){
+                res.redirect('/')
+            })
+        }
+        else{
+            return res.render('./products/newProduct', {
+                errors: {
+                    avatar:{
+                        msg: "Ingrese una imagen en formato valido"
+                    }
+                },
+                oldData: req.body
+            })
+        }
+
     },
 
     editProduct: function(req, res){

@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const productsController = require('../controllers/productsController');
 const uploadFile = require('../middlewares/loadImgMulter');
-
+const productValidations = require('../middlewares/productValidations');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 
 
 router.get('/newProduct', productsController.newProduct);
-router.post('/newProduct', uploadFile.single('img'), productsController.newProductFunction);
+router.post('/newProduct', uploadFile.single('img'), productValidations, productsController.newProductFunction);
 
 router.get('/productDetail/:id', productsController.productDetail);
 

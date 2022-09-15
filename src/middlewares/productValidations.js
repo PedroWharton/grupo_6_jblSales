@@ -1,12 +1,12 @@
 const { body } = require('express-validator');
 
 
-const validations = [
-    body('username').notEmpty().withMessage('Tenes que escribir un nombre de usuario').bail()
-    .isLength({min: 4, max: 30}).withMessage('El nombre de usuario debe tener entre 4 y 30 caracteres'),
+const productValidations = [
+    body('name').notEmpty().withMessage('Tenes que escribir un nombre de producto').bail()
+    .isLength({min: 5, max: 50}).withMessage('El nombre de producto debe tener entre 5 y 50 caracteres'),
 
-    body('email').notEmpty().withMessage('Tenes que escribir un email').bail()
-    .isEmail().withMessage('Debes escribir un email valido'),
+    body('description').notEmpty().withMessage('Tenes que escribir una descripcion').bail()
+    .isLength({min: 20, max: 1000}).withMessage('La descripcion debe tener un minimo de 20 carateres y maximo de 1000'),
     
 
     body('password').notEmpty().withMessage('Tenes que escribir una contraseña').bail()
@@ -24,4 +24,4 @@ const validations = [
       })
 ];
 
-module.exports = validations;
+module.exports = productValidations;

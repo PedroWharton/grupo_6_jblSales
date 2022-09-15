@@ -49,7 +49,7 @@
 ## Dejar de hacer
 #### Por el momento no tenemos que aportar a este item.
 
-# Retrospectiva 4 (mantenemos mismo que arriba por que el sprint 6 se termino con el sprint 5 y por ende tienen la misma retro)
+# Retrospectiva 6 (mantenemos mismo que arriba por que el sprint 6 se termino con el sprint 5 y por ende tienen la misma retro)
 
 ## Comenzar a hacer
 #### Por el momento no tenemos que aportar a este item.
