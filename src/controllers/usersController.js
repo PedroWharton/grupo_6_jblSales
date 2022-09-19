@@ -79,32 +79,32 @@ const usersController ={
         }
 
         db.User.findOne({where: {email: req.body.email}}).then(function(mailInDB){
-            if(mailInDB){
-                return res.render('./user/register', {
-                    errors: {
-                        email:{
-                            msg: "Este mail ya esta en uso"
-                        }
-                    },
+            if(resultValidation.errors.length > 0){
+                res.render('./user/register', {
+                    errors: resultValidation.mapped(),
                     oldData: req.body
                 })
             }
             else{
-                db.User.findOne({where: {username: req.body.username}}).then(function(usernameInDB){
-                    if(usernameInDB){
-                        return res.render('./user/register', {
-                            errors: {
-                                username:{
-                                    msg: "Este nombre de usuario ya esta en uso"
-                                }
-                            },
-                            oldData: req.body
-                        })
-                    }
-                    else {
-                        if(resultValidation.errors.length > 0){
-                            res.render('./user/register', {
-                                errors: resultValidation.mapped(),
+                if(mailInDB){
+                    return res.render('./user/register', {
+                        errors: {
+                            email:{
+                                msg: "Este mail ya esta en uso"
+                            }
+                        },
+                        oldData: req.body
+                    })
+                }
+                else{
+                    db.User.findOne({where: {username: req.body.username}}).then(function(usernameInDB){
+                        if(usernameInDB){
+                            return res.render('./user/register', {
+                                errors: {
+                                    username:{
+                                        msg: "Este nombre de usuario ya esta en uso"
+                                    }
+                                },
                                 oldData: req.body
                             })
                         }
@@ -134,9 +134,9 @@ const usersController ={
                                 res.redirect('/user/detail')
                             })
                         }
-                
-                    }
-                })
+                    })
+            }
+            
 
                 
             }

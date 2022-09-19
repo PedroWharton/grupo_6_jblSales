@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const db = require('../../database/models');
+const { validationResult } = require('express-validator');
 
 const productController ={
     
@@ -46,6 +47,8 @@ const productController ={
     },
     
     newProductFunction: function(req, res){
+        const resultValidation = validationResult(req);
+
         function isImage(filename) {
 
             let extension = (path.extname(filename)).toLowerCase();
@@ -62,7 +65,13 @@ const productController ={
                     return false;
             }
         }
-        if(isImage(req.file.filename)){
+        if(resultValidation.errors.length > 0){
+            res.render('./products/newProduct', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+        else if(isImage(req.file.filename)){
             db.Product.create({
                 ...req.body,
                 img: req.file.filename
