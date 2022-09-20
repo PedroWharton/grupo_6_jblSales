@@ -9,6 +9,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const usersAPIrouter = require('./routes/usersAPIrouter');
+const productsAPIrouter = require('./routes/productsAPIrouter');
 
 
 app.use(express.static(path.join(__dirname, '../public')));
@@ -35,5 +37,7 @@ app.listen(process.env.PORT || 3000, function(){
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
-app.use('/user', usersRouter);
+app.use('/user', usersRouter)
+app.use('/api/users', usersAPIrouter);
+app.use('/api/products', productsAPIrouter);
 
