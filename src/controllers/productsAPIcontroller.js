@@ -26,33 +26,34 @@ const productsAPIcontroller ={
                 }
             } 
             res.json(response)
-        })  
+        }).catch(function(err){
+            console.log(err);
+        })
     },
     productDetail: function(req,res){
-        db.Product.findOne({where: {product_id: req.params.id}},{
+        db.Product.findByPk(req.params.id,{
             include: [
                 {
-                    association: "category",
-                    where: {'$Category.category_id$': 'Product.category_id'}
+                    association: "category"
                 }
-
               ]
             }).then(function(result){
-
-                console.log(result)
-            let product = {
-                id: result.product_id,
-                name: result.name,
-                description: result.description,
-                image: `localhost:3000/images/${result.img}`
-            }
+                let product = {
+                    id: result.product_id,
+                    name: result.name,
+                    description: result.description,
+                    category: result.category.name,
+                    image: `localhost:3000/images/${result.img}`
+                }
             const response = {
                 data: {
                     product: product
                 }
             } 
             res.json(response)
-        })  
+        }).catch(function(err){
+            console.log(err)
+        })
     }
 
 }

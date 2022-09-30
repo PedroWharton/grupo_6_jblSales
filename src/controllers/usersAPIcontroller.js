@@ -17,7 +17,9 @@ const usersAPIcontroller ={
                 }
             } 
             res.json(response)
-        })  
+        }).catch(function(err){
+            console.log(err);
+        }) 
     },
     userDetail: function(req,res){
         db.User.findOne({where: {user_id: req.params.id}}).then(function(result){
@@ -33,7 +35,9 @@ const usersAPIcontroller ={
                 }
             } 
             res.json(response)
-        })  
+        }).catch(function(err){
+            console.log(err);
+        }) 
     }
 
 }
