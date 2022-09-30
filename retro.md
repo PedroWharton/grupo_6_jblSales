@@ -65,3 +65,6 @@
 
 ## Dejar de hacer
 #### Por el momento no tenemos que aportar a este item.
+
+# Retrospectiva 7 y 8 
+#### NO APLICA

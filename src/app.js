@@ -11,6 +11,11 @@ const session = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const usersAPIrouter = require('./routes/usersAPIrouter');
 const productsAPIrouter = require('./routes/productsAPIrouter');
+const categoryRouter= require('./routes/categoryRouter');
+var cors = require('cors');
+
+
+app.use(cors())
 
 
 app.use(express.static(path.join(__dirname, '../public')));
@@ -40,4 +45,5 @@ app.use('/products', productsRouter);
 app.use('/user', usersRouter)
 app.use('/api/users', usersAPIrouter);
 app.use('/api/products', productsAPIrouter);
+app.use('/api/categories', categoryRouter);
 
