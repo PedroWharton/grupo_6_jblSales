@@ -10,14 +10,15 @@ const productsAPIcontroller ={
 
               ]
             }).then(function(result){
-                console.log(result);
             let products = []
             result.rows.map(e => products.push({
                 id: e.product_id,
                 name: e.name,
                 description: e.description,
                 categories: [e.category.name],
-                detail: `loalhost:300/api/products/${e.product_id}`
+                price: e.price,
+                image: `localhost:3000/images/${e.img}`,
+                detail: `localhost:3000/api/products/${e.product_id}`
             }))
             const response = {
                 data: {
